@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#071229" />
+    <meta
+      name="description"
+      content="Pavu is a privacy-preserving, local-first network behavior analyzer for personal devices."
+    />
+    <title>Pavu — Local-first network security</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="app.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main" data-en="Skip to content" data-zh="跳到正文">Skip to content</a>
+
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Pavu home">
+        <img src="assets/pavu-icon.png" alt="" width="40" height="40" />
+        <span>Pavu</span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="#product" data-en="Product" data-zh="产品">Product</a>
+        <a href="#privacy" data-en="Privacy" data-zh="隐私">Privacy</a>
+        <a href="#architecture" data-en="Architecture" data-zh="架构">Architecture</a>
+      </nav>
+      <div class="header-actions">
+        <button class="language-button" type="button" aria-label="Switch language">中文</button>
+        <a class="button button-small" href="https://github.com/pavulabs" rel="noreferrer">GitHub</a>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top">
+        <div class="hero-copy">
+          <div class="eyebrow">
+            <span class="pulse" aria-hidden="true"></span>
+            <span data-en="Private beta · macOS 14+" data-zh="内测阶段 · macOS 14+">Private beta · macOS 14+</span>
+          </div>
+          <h1 data-en="Understand what your apps do on the network." data-zh="看清每个应用在网络上做了什么。">
+            Understand what your apps do on the network.
+          </h1>
+          <p class="hero-lede" data-en="Pavu connects network activity, application identity, and local file events to surface behavior worth your attention—without decrypting TLS or uploading your data." data-zh="Pavu 将网络活动、应用身份与本地文件事件关联起来，发现值得关注的行为；不解密 TLS，也不上传你的数据。">
+            Pavu connects network activity, application identity, and local file events to surface behavior worth your attention—without decrypting TLS or uploading your data.
+          </p>
+          <div class="hero-actions">
+            <a class="button" href="#product" data-en="Explore Pavu" data-zh="了解 Pavu">Explore Pavu</a>
+            <a class="text-link" href="#privacy" data-en="Read our privacy boundary" data-zh="查看隐私边界">Read our privacy boundary <span aria-hidden="true">→</span></a>
+          </div>
+          <ul class="trust-list" aria-label="Product principles">
+            <li data-en="Local-first analysis" data-zh="本机优先分析">Local-first analysis</li>
+            <li data-en="Metadata only" data-zh="只采集元数据">Metadata only</li>
+            <li data-en="User-controlled" data-zh="由用户掌控">User-controlled</li>
+          </ul>
+        </div>
+
+        <div class="signal-console" aria-label="Illustrative Pavu security finding">
+          <div class="console-topbar">
+            <div>
+              <span class="console-kicker" data-en="BEHAVIOR GRAPH" data-zh="行为图谱">BEHAVIOR GRAPH</span>
+              <strong data-en="Potential exfiltration chain" data-zh="疑似数据外传链路">Potential exfiltration chain</strong>
+            </div>
+            <span class="severity" data-en="HIGH" data-zh="高风险">HIGH</span>
+          </div>
+
+          <div class="flow-map" aria-hidden="true">
+            <div class="flow-node app-node">
+              <span class="node-icon">A</span>
+              <div><small>PROCESS</small><b>Updater</b></div>
+            </div>
+            <span class="flow-line"></span>
+            <div class="flow-node file-node">
+              <span class="node-icon">F</span>
+              <div><small>FILE</small><b>Documents/</b></div>
+            </div>
+            <span class="flow-line"></span>
+            <div class="flow-node net-node">
+              <span class="node-icon">N</span>
+              <div><small>NETWORK</small><b>198.51.100.42</b></div>
+            </div>
+          </div>
+
+          <div class="evidence-list">
+            <div><span data-en="Executable origin" data-zh="程序来源">Executable origin</span><b data-en="Downloads folder" data-zh="下载目录">Downloads folder</b></div>
+            <div><span data-en="Data sent" data-zh="发送数据">Data sent</span><b>486 MB / 4 min</b></div>
+            <div><span data-en="Destination" data-zh="目标地址">Destination</span><b data-en="First observed" data-zh="首次发现">First observed</b></div>
+          </div>
+
+          <p class="console-note" data-en="Illustrative metadata—not captured payload." data-zh="仅为元数据示例，不包含通信正文。">Illustrative metadata—not captured payload.</p>
+        </div>
+      </section>
+
+      <section class="section product-section" id="product">
+        <div class="section-heading">
+          <span class="section-index">01</span>
+          <div>
+            <p class="section-label" data-en="PRODUCT" data-zh="产品">PRODUCT</p>
+            <h2 data-en="Security signals that make sense." data-zh="把安全信号讲清楚。">Security signals that make sense.</h2>
+            <p data-en="Pavu turns isolated events into an evidence chain: which app acted, what it touched, where it connected, and why the combination may be risky." data-zh="Pavu 将孤立事件串成证据链：哪个应用做了什么、访问了哪些文件、连接到哪里，以及这些行为组合为何可能有风险。">
+              Pavu turns isolated events into an evidence chain: which app acted, what it touched, where it connected, and why the combination may be risky.
+            </p>
+          </div>
+        </div>
+
+        <div class="feature-grid">
+          <article>
+            <span class="feature-number">01</span>
+            <h3 data-en="Application-aware" data-zh="识别具体应用">Application-aware</h3>
+            <p data-en="Attribute connections to the responsible application, bundle identity, process, and executable path when macOS makes them available." data-zh="在 macOS 能够提供时，将连接归属到具体应用、Bundle 身份、进程和可执行文件路径。">Attribute connections to the responsible application, bundle identity, process, and executable path when macOS makes them available.</p>
+          </article>
+          <article>
+            <span class="feature-number">02</span>
+            <h3 data-en="Behavior correlation" data-zh="关联行为证据">Behavior correlation</h3>
+            <p data-en="Connect network flows with file and process metadata to detect patterns that a connection list alone cannot explain." data-zh="把网络流与文件、进程元数据关联起来，发现单看连接列表无法解释的行为模式。">Connect network flows with file and process metadata to detect patterns that a connection list alone cannot explain.</p>
+          </article>
+          <article>
+            <span class="feature-number">03</span>
+            <h3 data-en="Explainable findings" data-zh="可解释的风险发现">Explainable findings</h3>
+            <p data-en="Every finding includes a severity, concise reason, supporting evidence, related activity, and a recommended response." data-zh="每条发现都包含风险等级、简明原因、证据、相关活动以及建议处置方式。">Every finding includes a severity, concise reason, supporting evidence, related activity, and a recommended response.</p>
+          </article>
+        </div>
+
+        <div class="rule-strip" aria-label="Example detections">
+          <span data-en="Beaconing" data-zh="周期性回连">Beaconing</span>
+          <span data-en="Large upload" data-zh="异常大上传">Large upload</span>
+          <span data-en="Rare destination" data-zh="罕见目标">Rare destination</span>
+          <span data-en="Unusual port" data-zh="非常用端口">Unusual port</span>
+          <span data-en="Untrusted executable" data-zh="不可信程序">Untrusted executable</span>
+          <span data-en="Inbound exposure" data-zh="外部入站">Inbound exposure</span>
+        </div>
+      </section>
+
+      <section class="section privacy-section" id="privacy">
+        <div class="section-heading compact">
+          <span class="section-index">02</span>
+          <div>
+            <p class="section-label" data-en="PRIVACY" data-zh="隐私">PRIVACY</p>
+            <h2 data-en="Useful context, without reading your content." data-zh="获得有效上下文，但不读取你的内容。">Useful context, without reading your content.</h2>
+          </div>
+        </div>
+
+        <div class="boundary-grid">
+          <article class="boundary-card collect">
+            <p class="boundary-label" data-en="PAVU OBSERVES" data-zh="PAVU 观察">PAVU OBSERVES</p>
+            <ul>
+              <li data-en="Application and process identity" data-zh="应用与进程身份">Application and process identity</li>
+              <li data-en="Destination host, IP, port, and protocol" data-zh="目标域名、IP、端口与协议">Destination host, IP, port, and protocol</li>
+              <li data-en="Connection timing, direction, state, and byte counts" data-zh="连接时间、方向、状态与字节数">Connection timing, direction, state, and byte counts</li>
+              <li data-en="File-operation metadata when separately authorized" data-zh="单独授权后的文件操作元数据">File-operation metadata when separately authorized</li>
+            </ul>
+          </article>
+          <article class="boundary-card never">
+            <p class="boundary-label" data-en="PAVU NEVER COLLECTS" data-zh="PAVU 不采集">PAVU NEVER COLLECTS</p>
+            <ul>
+              <li data-en="Network payloads or TLS plaintext" data-zh="网络正文或 TLS 明文">Network payloads or TLS plaintext</li>
+              <li data-en="Passwords, cookies, or message contents" data-zh="密码、Cookie 或消息正文">Passwords, cookies, or message contents</li>
+              <li data-en="Complete file contents" data-zh="完整文件内容">Complete file contents</li>
+              <li data-en="Cloud telemetry in the current product" data-zh="当前产品中的云端遥测">Cloud telemetry in the current product</li>
+            </ul>
+          </article>
+        </div>
+        <p class="retention-note" data-en="Metadata stays on the Mac and is retained for 24 hours by default. Monitoring can be paused and stored data can be cleared at any time." data-zh="元数据保留在 Mac 本机，默认保存 24 小时。用户可以随时暂停监控并清除已存储数据。">
+          Metadata stays on the Mac and is retained for 24 hours by default. Monitoring can be paused and stored data can be cleared at any time.
+        </p>
+      </section>
+
+      <section class="section architecture-section" id="architecture">
+        <div class="section-heading compact">
+          <span class="section-index">03</span>
+          <div>
+            <p class="section-label" data-en="ARCHITECTURE" data-zh="架构">ARCHITECTURE</p>
+            <h2 data-en="Designed around a local trust boundary." data-zh="围绕本地信任边界设计。">Designed around a local trust boundary.</h2>
+          </div>
+        </div>
+
+        <div class="architecture-flow">
+          <article>
+            <span>1</span>
+            <h3 data-en="System collectors" data-zh="系统采集器">System collectors</h3>
+            <p data-en="Apple Network Extension provides flow metadata. Endpoint Security file events are used only after separate Apple approval and user authorization." data-zh="Apple Network Extension 提供流量元数据。Endpoint Security 文件事件仅在 Apple 单独批准并由用户授权后启用。">Apple Network Extension provides flow metadata. Endpoint Security file events are used only after separate Apple approval and user authorization.</p>
+          </article>
+          <div class="architecture-arrow" aria-hidden="true">→</div>
+          <article>
+            <span>2</span>
+            <h3 data-en="Pavu Core" data-zh="Pavu Core">Pavu Core</h3>
+            <p data-en="A shared Rust core normalizes observations, builds baselines, correlates behavior, evaluates rules, and manages local retention." data-zh="共享的 Rust 核心负责标准化事件、建立基线、关联行为、执行规则并管理本地数据保留。">A shared Rust core normalizes observations, builds baselines, correlates behavior, evaluates rules, and manages local retention.</p>
+          </article>
+          <div class="architecture-arrow" aria-hidden="true">→</div>
+          <article>
+            <span>3</span>
+            <h3 data-en="Explainable interface" data-zh="可解释界面">Explainable interface</h3>
+            <p data-en="The macOS app shows applications, connections, file activity, and findings without exposing privileged collectors directly to the UI." data-zh="macOS 应用展示应用、连接、文件活动和安全发现，界面不直接依赖特权采集器。">The macOS app shows applications, connections, file activity, and findings without exposing privileged collectors directly to the UI.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section status-section">
+        <div>
+          <p class="section-label" data-en="CURRENT STATUS" data-zh="当前状态">CURRENT STATUS</p>
+          <h2 data-en="Built for careful real-world validation." data-zh="为谨慎的真实环境验证而构建。">Built for careful real-world validation.</h2>
+          <p data-en="Pavu for macOS is currently in private beta. Network collection uses Apple-supported system extension APIs and observes without blocking. File-activity collection remains disabled in public builds until Apple grants the Endpoint Security entitlement." data-zh="Pavu macOS 版本目前处于内测阶段。网络采集使用 Apple 官方支持的系统扩展 API，默认仅观察、不阻断。在 Apple 批准 Endpoint Security entitlement 之前，公开版本中的文件活动采集保持禁用。">
+            Pavu for macOS is currently in private beta. Network collection uses Apple-supported system extension APIs and observes without blocking. File-activity collection remains disabled in public builds until Apple grants the Endpoint Security entitlement.
+          </p>
+        </div>
+        <a class="button button-light" href="https://github.com/pavulabs" rel="noreferrer" data-en="Visit Pavu Labs on GitHub" data-zh="访问 Pavu Labs GitHub">Visit Pavu Labs on GitHub</a>
+      </section>
+    </main>
+
+    <footer>
+      <div class="brand footer-brand">
+        <img src="assets/pavu-icon.png" alt="" width="34" height="34" />
+        <span>Pavu Labs</span>
+      </div>
+      <p data-en="Personal endpoint security, designed with privacy in the loop." data-zh="面向个人的端点安全，把隐私纳入每一步设计。">Personal endpoint security, designed with privacy in the loop.</p>
+      <p>© <span id="year"></span> Pavu Labs</p>
+    </footer>
+  </body>
+</html>

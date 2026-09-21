@@ -22,7 +22,10 @@ html {
 }
 
 body {
+  position: relative;
+  isolation: isolate;
   margin: 0;
+  overflow-x: hidden;
   color: var(--ink);
   background:
     radial-gradient(circle at 78% 4%, rgba(22, 121, 222, 0.2), transparent 28rem),
@@ -32,6 +35,21 @@ body {
   font-size: 16px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+}
+
+.network-background {
+  position: fixed;
+  z-index: 0;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+main,
+footer {
+  position: relative;
+  z-index: 1;
 }
 
 a {
@@ -580,6 +598,73 @@ h3 {
   color: rgba(44, 234, 217, 0.5);
 }
 
+.open-source-section {
+  position: relative;
+}
+
+.open-source-section::before {
+  position: absolute;
+  width: 1px;
+  height: 58%;
+  top: 7rem;
+  right: 2rem;
+  background: rgba(44, 234, 217, 0.28);
+  box-shadow: -18px 0 rgba(42, 168, 255, 0.12), -36px 0 rgba(44, 234, 217, 0.06);
+  content: "";
+}
+
+.platform-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.platform-grid article {
+  min-height: 220px;
+  padding: 1.5rem;
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: rgba(8, 23, 49, 0.7);
+  backdrop-filter: blur(14px);
+}
+
+.platform-mark {
+  display: inline-block;
+  margin-bottom: 2.8rem;
+  color: var(--cyan);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.platform-grid strong {
+  display: block;
+  margin-bottom: 0.65rem;
+  font-size: 1.18rem;
+}
+
+.platform-grid p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.open-source-link {
+  display: inline-flex;
+  margin-top: 1.5rem;
+  align-items: center;
+  gap: 0.65rem;
+  color: var(--cyan);
+  font-weight: 720;
+  text-decoration: none;
+}
+
+.open-source-link:hover,
+.open-source-link:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 0.3rem;
+}
+
 .status-section {
   display: grid;
   grid-template-columns: minmax(0, 760px) auto;
@@ -637,7 +722,8 @@ footer p {
   }
 
   .feature-grid,
-  .boundary-grid {
+  .boundary-grid,
+  .platform-grid {
     grid-template-columns: 1fr;
   }
 

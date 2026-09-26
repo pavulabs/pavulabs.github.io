@@ -6,7 +6,7 @@
     <meta name="theme-color" content="#071229" />
     <meta
       name="description"
-      content="Pavu is a local-first application security project. Explore the macOS prototype, current capabilities, and privacy boundaries. Public source access is being prepared."
+      content="Pavu helps you see what your apps do online. Explore the early macOS version and our approach to privacy."
     />
     <title>Pavu — Local-first application security</title>
     <link rel="canonical" href="https://pavu.cn/" />
@@ -27,8 +27,8 @@
       <nav aria-label="Primary navigation">
         <a href="#product" data-en="Product" data-zh="产品">Product</a>
         <a href="#privacy" data-en="Privacy" data-zh="隐私">Privacy</a>
-        <a href="#architecture" data-en="Architecture" data-zh="架构">Architecture</a>
-        <a href="#open-source" data-en="Open source" data-zh="开源">Open source</a>
+        <a href="#architecture" data-en="How it works" data-zh="如何运作">How it works</a>
+        <a href="#open-source" data-en="Availability" data-zh="支持情况">Availability</a>
       </nav>
       <div class="header-actions">
         <button class="language-button" type="button" aria-label="Switch language">中文</button>
@@ -41,22 +41,22 @@
         <div class="hero-copy">
           <div class="eyebrow">
             <span class="pulse" aria-hidden="true"></span>
-            <span data-en="Private beta · macOS prototype" data-zh="内测阶段 · macOS 原型">Private beta · macOS prototype</span>
+            <span data-en="Early macOS preview" data-zh="macOS 早期测试版">Early macOS preview</span>
           </div>
-          <h1 data-en="Know when an app puts you at risk." data-zh="应用带来风险时，及时知道。">
-            Know when an app puts you at risk.
+          <h1 data-en="See what your apps are doing." data-zh="看清应用动向。">
+            See what your apps are doing.
           </h1>
-          <p class="hero-lede" data-en="Pavu is a local-first application security project for individuals. The macOS prototype monitors real network metadata and shows in-app findings and response recommendations. Proactive alerts and blocking are planned." data-zh="Pavu 是面向个人用户的本机优先应用安全项目。macOS 原型采集真实网络元数据，展示应用内风险发现与处置建议；主动提醒和连接阻断仍在规划中。">
-            Pavu is a local-first application security project for individuals. The macOS prototype monitors real network metadata and shows in-app findings and response recommendations. Proactive alerts and blocking are planned.
+          <p class="hero-lede" data-en="Pavu shows which apps connect to the internet and highlights activity worth checking. An early macOS version is being tested; it does not block connections yet." data-zh="Pavu 展示哪些应用正在联网，并提示值得留意的活动。macOS 早期版本仍在测试中，目前不会阻断连接。">
+            Pavu shows which apps connect to the internet and highlights activity worth checking. An early macOS version is being tested; it does not block connections yet.
           </p>
           <div class="hero-actions">
             <a class="button" href="#product" data-en="See what works today" data-zh="查看当前能力">See what works today</a>
             <a class="text-link" href="#privacy" data-en="Read our privacy boundary" data-zh="查看隐私边界">Read our privacy boundary</a>
           </div>
           <ul class="trust-list" aria-label="Product principles">
-            <li data-en="Local analysis" data-zh="本机分析">Local analysis</li>
-            <li data-en="No payload collection" data-zh="不采集通信正文">No payload collection</li>
-            <li data-en="Public source planned" data-zh="计划公开源码">Public source planned</li>
+            <li data-en="Analysis on your Mac" data-zh="在 Mac 本机分析">Analysis on your Mac</li>
+            <li data-en="No message or file contents" data-zh="不读取消息或文件正文">No message or file contents</li>
+            <li data-en="Clear findings" data-zh="清楚说明发现">Clear findings</li>
           </ul>
         </div>
 
@@ -72,27 +72,27 @@
           <div class="flow-map" aria-hidden="true">
             <div class="flow-node app-node">
               <span class="node-icon">A</span>
-              <div><small>PROCESS</small><b>Updater</b></div>
+              <div><small data-en="APP" data-zh="应用">APP</small><b>Updater</b></div>
             </div>
             <span class="flow-line"></span>
             <div class="flow-node file-node">
               <span class="node-icon">F</span>
-              <div><small>FILE</small><b>Documents/</b></div>
+              <div><small data-en="FILE" data-zh="文件">FILE</small><b>Documents/</b></div>
             </div>
             <span class="flow-line"></span>
             <div class="flow-node net-node">
               <span class="node-icon">N</span>
-              <div><small>NETWORK</small><b>198.51.100.42</b></div>
+              <div><small data-en="NET" data-zh="网络">NET</small><b>198.51.100.42</b></div>
             </div>
           </div>
 
           <div class="evidence-list">
-            <div><span data-en="Executable origin" data-zh="程序来源">Executable origin</span><b data-en="Downloads folder" data-zh="下载目录">Downloads folder</b></div>
+            <div><span data-en="App location" data-zh="应用位置">App location</span><b data-en="Downloads folder" data-zh="下载目录">Downloads folder</b></div>
             <div><span data-en="Data sent" data-zh="发送数据">Data sent</span><b>486 MB / 4 min</b></div>
-            <div><span data-en="Destination" data-zh="目标地址">Destination</span><b data-en="First observed" data-zh="首次发现">First observed</b></div>
+            <div><span data-en="Connection history" data-zh="连接历史">Connection history</span><b data-en="First seen" data-zh="首次出现">First seen</b></div>
           </div>
 
-          <p class="console-note" data-en="Illustration only. File activity needs separate authorization; nearby file and network events do not prove file contents were uploaded." data-zh="仅为示意。文件活动需要单独授权；时间接近的文件与网络事件不能证明文件内容已上传。">Illustration only. File activity needs separate authorization; nearby file and network events do not prove file contents were uploaded.</p>
+          <p class="console-note" data-en="Illustration only. A file read and a nearby connection do not prove the file was uploaded." data-zh="仅为示意。读取文件后很快联网，不代表该文件已被上传。">Illustration only. A file read and a nearby connection do not prove the file was uploaded.</p>
         </div>
       </section>
 
@@ -101,9 +101,9 @@
           <span class="section-index">01</span>
           <div>
             <p class="section-label" data-en="PRODUCT" data-zh="产品">PRODUCT</p>
-            <h2 data-en="From monitoring to action." data-zh="从监控到处置。">From monitoring to action.</h2>
-            <p data-en="Pavu aims to monitor application behavior, identify risk, notify you, and help you respond. Here is what the macOS prototype can do today—and what still needs to be built." data-zh="Pavu 希望持续监控应用行为、识别风险、主动提醒并帮助用户处置。以下区分 macOS 原型现有能力与仍待实现的部分。">
-              Pavu aims to monitor application behavior, identify risk, notify you, and help you respond. Here is what the macOS prototype can do today—and what still needs to be built.
+            <h2 data-en="Understand activity at a glance." data-zh="一眼看懂应用活动。">Understand activity at a glance.</h2>
+            <p data-en="The macOS preview helps you see connections, review unusual behavior, and decide what to check next." data-zh="macOS 测试版帮助你查看联网活动、了解异常行为，并决定下一步该核实什么。">
+              The macOS preview helps you see connections, review unusual behavior, and decide what to check next.
             </p>
           </div>
         </div>
@@ -111,34 +111,31 @@
         <div class="feature-grid">
           <article>
             <span class="feature-number">01</span>
-            <h3 data-en="Monitor · available" data-zh="监控 · 已实现">Monitor · available</h3>
-            <p data-en="The macOS prototype collects real TCP/UDP network metadata and shows activity by application. File events require Apple's Endpoint Security entitlement and user permission." data-zh="macOS 原型采集真实 TCP/UDP 网络元数据，并按应用展示活动。文件事件需要 Apple 批准 Endpoint Security 权限及用户授权。">The macOS prototype collects real TCP/UDP network metadata and shows activity by application. File events require Apple's Endpoint Security entitlement and user permission.</p>
+            <h3 data-en="See connections" data-zh="查看联网活动">See connections</h3>
+            <p data-en="See which apps connect and where. File activity needs separate approval and may be unavailable." data-zh="了解哪些应用在联网、连接到哪里。文件活动需要单独授权，也可能暂时不可用。">See which apps connect and where. File activity needs separate approval and may be unavailable.</p>
           </article>
           <article>
             <span class="feature-number">02</span>
-            <h3 data-en="Identify · available" data-zh="识别 · 已实现">Identify · available</h3>
-            <p data-en="Local rules flag patterns such as large outbound transfers, periodic connections, unusual ports, and suspicious executables. Missing evidence is shown, and dependent rules are skipped." data-zh="本地规则识别大量出站数据、周期性连接、非常用端口与可疑程序等模式。缺失证据会明确显示，依赖该能力的规则会跳过。">Local rules flag patterns such as large outbound transfers, periodic connections, unusual ports, and suspicious executables. Missing evidence is shown, and dependent rules are skipped.</p>
+            <h3 data-en="Spot unusual behavior" data-zh="发现异常行为">Spot unusual behavior</h3>
+            <p data-en="Pavu highlights patterns such as large uploads or repeated connections. If it lacks information, it tells you." data-zh="Pavu 会提示大量上传、反复联网等行为；信息不足时，也会明确告诉你。">Pavu highlights patterns such as large uploads or repeated connections. If it lacks information, it tells you.</p>
           </article>
           <article>
             <span class="feature-number">03</span>
-            <h3 data-en="Notify · in-app only" data-zh="提醒 · 仅应用内">Notify · in-app only</h3>
-            <p data-en="Findings and supporting evidence appear in the app. Proactive system notifications are not implemented yet." data-zh="安全发现及其证据可在应用内查看；主动系统通知尚未实现。">Findings and supporting evidence appear in the app. Proactive system notifications are not implemented yet.</p>
+            <h3 data-en="Review findings" data-zh="查看发现">Review findings</h3>
+            <p data-en="Read clear explanations and suggested next steps in the app. System notifications are not available yet." data-zh="在应用内查看简明解释和建议。系统通知暂未提供。">Read clear explanations and suggested next steps in the app. System notifications are not available yet.</p>
           </article>
           <article>
             <span class="feature-number">04</span>
-            <h3 data-en="Mitigate · guidance only" data-zh="处置 · 当前仅提供建议">Mitigate · guidance only</h3>
-            <p data-en="Pavu offers response recommendations. Reversible connection blocking remains planned; every connection is currently allowed." data-zh="Pavu 当前提供处置建议。可恢复的连接阻断仍在规划中；现阶段所有连接默认放行。">Pavu offers response recommendations. Reversible connection blocking remains planned; every connection is currently allowed.</p>
+            <h3 data-en="Stay in control" data-zh="由你决定下一步">Stay in control</h3>
+            <p data-en="Pavu suggests what to check or do. It does not block connections in this preview." data-zh="Pavu 提供核实和处置建议。当前测试版不会阻断连接。">Pavu suggests what to check or do. It does not block connections in this preview.</p>
           </article>
         </div>
 
         <div class="rule-strip" aria-label="Example detections">
-          <span data-en="Beaconing" data-zh="周期性回连">Beaconing</span>
-          <span data-en="Large upload" data-zh="异常大上传">Large upload</span>
-          <span data-en="Signature anomaly" data-zh="签名异常">Signature anomaly</span>
-          <span data-en="Unusual port" data-zh="非常用端口">Unusual port</span>
-          <span data-en="Untrusted executable" data-zh="不可信程序">Untrusted executable</span>
-          <span data-en="Inbound exposure" data-zh="外部入站">Inbound exposure</span>
-          <span data-en="File/network correlation when authorized" data-zh="授权后的文件/网络关联">File/network correlation when authorized</span>
+          <span data-en="Repeated connections" data-zh="反复联网">Repeated connections</span>
+          <span data-en="Large uploads" data-zh="大量上传">Large uploads</span>
+          <span data-en="Unusual ports" data-zh="非常用端口">Unusual ports</span>
+          <span data-en="Unexpected incoming connections" data-zh="意外的入站连接">Unexpected incoming connections</span>
         </div>
       </section>
 
@@ -147,7 +144,7 @@
           <span class="section-index">02</span>
           <div>
             <p class="section-label" data-en="PRIVACY" data-zh="隐私">PRIVACY</p>
-            <h2 data-en="Useful context, without reading your content." data-zh="获得有效上下文，但不读取你的内容。">Useful context, without reading your content.</h2>
+            <h2 data-en="Understand behavior without reading content." data-zh="了解行为，不读取内容。">Understand behavior without reading content.</h2>
           </div>
         </div>
 
@@ -155,54 +152,52 @@
           <article class="boundary-card collect">
             <p class="boundary-label" data-en="PAVU OBSERVES" data-zh="PAVU 观察">PAVU OBSERVES</p>
             <ul>
-              <li data-en="Application and process identity" data-zh="应用与进程身份">Application and process identity</li>
-              <li data-en="Destination domain (when available), IP, port, and protocol" data-zh="目标域名（系统可提供时）、IP、端口与协议">Destination domain (when available), IP, port, and protocol</li>
-              <li data-en="Connection timing, direction, state, and reported byte counts" data-zh="连接时间、方向、状态与系统报告的字节数">Connection timing, direction, state, and reported byte counts</li>
-              <li data-en="File-operation metadata when separately authorized" data-zh="单独授权后的文件操作元数据">File-operation metadata when separately authorized</li>
+              <li data-en="Which app connects to which destination" data-zh="哪个应用连接到哪里">Which app connects to which destination</li>
+              <li data-en="When it connects and how much data it sends" data-zh="何时联网、发送了多少数据">When it connects and how much data it sends</li>
+              <li data-en="File activity, only when access is available and approved" data-zh="文件活动，仅在采集可用且已获授权时">File activity, only when access is available and approved</li>
             </ul>
           </article>
           <article class="boundary-card never">
             <p class="boundary-label" data-en="PAVU NEVER COLLECTS" data-zh="PAVU 不采集">PAVU NEVER COLLECTS</p>
             <ul>
-              <li data-en="Network payloads or TLS plaintext" data-zh="网络正文或 TLS 明文">Network payloads or TLS plaintext</li>
-              <li data-en="Passwords, cookies, authentication tokens, or message contents" data-zh="密码、Cookie、认证令牌或消息正文">Passwords, cookies, authentication tokens, or message contents</li>
-              <li data-en="File contents" data-zh="文件正文">File contents</li>
-              <li data-en="Keyboard, screen, camera, or microphone content" data-zh="键盘、屏幕、摄像头或麦克风内容">Keyboard, screen, camera, or microphone content</li>
+              <li data-en="The contents of your files or messages" data-zh="文件或消息正文">The contents of your files or messages</li>
+              <li data-en="Passwords, cookies, or sign-in tokens" data-zh="密码、Cookie 或登录令牌">Passwords, cookies, or sign-in tokens</li>
+              <li data-en="Network traffic contents" data-zh="网络通信正文">Network traffic contents</li>
             </ul>
           </article>
         </div>
-        <p class="retention-note" data-en="Activity metadata stays on the Mac and is retained for the most recent 24 hours by default. You can pause monitoring or clear stored data. Cleanup of expired records waits while the app is closed or the Mac is asleep." data-zh="活动元数据留在 Mac 本机，默认保留最近 24 小时。你可以暂停监控或清除数据；应用退出或 Mac 睡眠时，过期记录会在恢复运行后清理。">
-          Activity metadata stays on the Mac and is retained for the most recent 24 hours by default. You can pause monitoring or clear stored data. Cleanup of expired records waits while the app is closed or the Mac is asleep.
+        <p class="retention-note" data-en="Activity history stays on your Mac and is normally kept for one day. You can pause monitoring or clear it." data-zh="活动记录留在你的 Mac 上，通常保留一天。你可以暂停监控或清除记录。">
+          Activity history stays on your Mac and is normally kept for one day. You can pause monitoring or clear it.
         </p>
-        <p class="retention-note" data-en="Optional IP-location lookup is off at every launch. If you enable it, public destination IPs are sent to ipapi.co; application identities, file paths, and activity records are not sent. Local detection does not need this lookup." data-zh="IP 位置补全每次启动默认关闭。主动开启后，公网目标 IP 会发送到 ipapi.co；应用身份、文件路径和活动记录不会发送。本地检测不依赖该查询。">Optional IP-location lookup is off at every launch. If you enable it, public destination IPs are sent to ipapi.co; application identities, file paths, and activity records are not sent. Local detection does not need this lookup.</p>
+        <p class="retention-note" data-en="Optional location lookup is off by default. If you turn it on, Pavu sends public destination IP addresses to ipapi.co, but not app names or file paths." data-zh="可选的位置查询默认关闭。开启后，Pavu 只向 ipapi.co 发送公网目标 IP，不发送应用名称或文件路径。">Optional location lookup is off by default. If you turn it on, Pavu sends public destination IP addresses to ipapi.co, but not app names or file paths.</p>
       </section>
 
       <section class="section architecture-section" id="architecture">
         <div class="section-heading compact">
           <span class="section-index">03</span>
           <div>
-            <p class="section-label" data-en="ARCHITECTURE" data-zh="架构">ARCHITECTURE</p>
-            <h2 data-en="Designed around a local trust boundary." data-zh="围绕本地信任边界设计。">Designed around a local trust boundary.</h2>
+            <p class="section-label" data-en="HOW IT WORKS" data-zh="如何运作">HOW IT WORKS</p>
+            <h2 data-en="Useful answers, right on your Mac." data-zh="直接在 Mac 上看懂活动。">Useful answers, right on your Mac.</h2>
           </div>
         </div>
 
         <div class="architecture-flow">
           <article>
             <span>1</span>
-            <h3 data-en="System collectors" data-zh="系统采集器">System collectors</h3>
-            <p data-en="On macOS, a Network Content Filter extension collects flow metadata. File-event collection is only a skeleton until Apple grants the Endpoint Security entitlement and the user authorizes it." data-zh="在 macOS 上，Network Content Filter 系统扩展采集网络元数据。文件事件采集目前只有骨架，仍需 Apple 批准 Endpoint Security 权限及用户授权。">On macOS, a Network Content Filter extension collects flow metadata. File-event collection is only a skeleton until Apple grants the Endpoint Security entitlement and the user authorizes it.</p>
+            <h3 data-en="Observe" data-zh="观察">Observe</h3>
+            <p data-en="Pavu sees connection details from apps on your Mac. File activity appears only when collection is available and approved." data-zh="Pavu 查看 Mac 上各应用的联网信息。文件活动仅在采集可用且已获授权时显示。">Pavu sees connection details from apps on your Mac. File activity appears only when collection is available and approved.</p>
           </article>
           <div class="architecture-arrow" aria-hidden="true">→</div>
           <article>
             <span>2</span>
-            <h3 data-en="Pavu Core" data-zh="Pavu Core">Pavu Core</h3>
-            <p data-en="The shared Rust core normalizes observations, builds basic baselines, correlates behavior, evaluates local rules, and stores recent activity in SQLite." data-zh="共享的 Rust Core 负责标准化事件、建立基础基线、关联行为、执行本地规则，并将近期活动存入 SQLite。">The shared Rust core normalizes observations, builds basic baselines, correlates behavior, evaluates local rules, and stores recent activity in SQLite.</p>
+            <h3 data-en="Find patterns" data-zh="发现规律">Find patterns</h3>
+            <p data-en="Pavu checks activity on your Mac and highlights patterns that may need a closer look." data-zh="Pavu 在 Mac 本机分析活动，提示值得进一步核实的行为。">Pavu checks activity on your Mac and highlights patterns that may need a closer look.</p>
           </article>
           <div class="architecture-arrow" aria-hidden="true">→</div>
           <article>
             <span>3</span>
-            <h3 data-en="Explainable interface" data-zh="可解释界面">Explainable interface</h3>
-            <p data-en="The macOS SwiftUI app shows per-application activity, local findings, history, and response guidance. File activity appears only when collection is authorized and available." data-zh="macOS SwiftUI 应用展示按应用划分的活动、本地发现、历史记录与处置建议。文件活动仅在采集获得授权且可用时显示。">The macOS SwiftUI app shows per-application activity, local findings, history, and response guidance. File activity appears only when collection is authorized and available.</p>
+            <h3 data-en="Explain" data-zh="解释">Explain</h3>
+            <p data-en="Review activity by app, with plain-language findings and suggested next steps." data-zh="按应用查看活动，并获得易懂的说明和下一步建议。">Review activity by app, with plain-language findings and suggested next steps.</p>
           </article>
         </div>
       </section>
@@ -211,10 +206,10 @@
         <div class="section-heading compact">
           <span class="section-index">04</span>
           <div>
-            <p class="section-label" data-en="OPEN SOURCE" data-zh="开源项目">OPEN SOURCE</p>
-            <h2 data-en="A shared core. Clear platform status." data-zh="共享核心，平台状态透明。">A shared core. Clear platform status.</h2>
-            <p data-en="Pavu is being developed as an open-source project under Apache License 2.0. Public access to the product source is being prepared. The macOS prototype uses the shared Rust core today; other platforms have no usable release." data-zh="Pavu 正作为 Apache License 2.0 开源项目开发，产品源码的公开访问仍在准备中。macOS 原型已经使用共享 Rust Core；其他平台尚无可用版本。">
-              Pavu is being developed as an open-source project under Apache License 2.0. Public access to the product source is being prepared. The macOS prototype uses the shared Rust core today; other platforms have no usable release.
+            <p class="section-label" data-en="AVAILABILITY" data-zh="支持情况">AVAILABILITY</p>
+            <h2 data-en="Where Pavu stands today." data-zh="Pavu 目前进展到哪一步。">Where Pavu stands today.</h2>
+            <p data-en="We are testing an early macOS version. Other platforms are not available yet, and public access to the product source is being prepared." data-zh="macOS 早期版本正在测试中。其他平台暂不可用，产品源码的公开访问也仍在准备。">
+              We are testing an early macOS version. Other platforms are not available yet, and public access to the product source is being prepared.
             </p>
           </div>
         </div>
@@ -222,23 +217,23 @@
         <div class="platform-grid" aria-label="Platform status">
           <article>
             <span class="platform-mark">macOS</span>
-            <strong data-en="Buildable prototype · macOS 14+" data-zh="可构建原型 · macOS 14+">Buildable prototype · macOS 14+</strong>
-            <p data-en="Real TCP/UDP metadata, application activity views, local findings, and history. Testing needs Xcode, Rust, signing, and system-extension approval." data-zh="支持真实 TCP/UDP 元数据、应用活动视图、本地发现与历史查询。试用需要 Xcode、Rust、签名及系统扩展授权。">Real TCP/UDP metadata, application activity views, local findings, and history. Testing needs Xcode, Rust, signing, and system-extension approval.</p>
+            <strong data-en="Early test version" data-zh="早期测试版">Early test version</strong>
+            <p data-en="Shows app connections and findings. It still needs technical setup and is not a public release." data-zh="可查看应用联网活动和风险发现。仍需技术配置，尚未公开发布。">Shows app connections and findings. It still needs technical setup and is not a public release.</p>
           </article>
           <article>
             <span class="platform-mark">Linux</span>
-            <strong data-en="Unavailable to users" data-zh="用户暂不可用">Unavailable to users</strong>
-            <p data-en="An observe-only eBPF-to-Core engineering prototype exists, but there is no usable Linux product." data-zh="已有仅观察模式的 eBPF 到 Core 工程原型，但尚无可用的 Linux 产品。">An observe-only eBPF-to-Core engineering prototype exists, but there is no usable Linux product.</p>
+            <strong data-en="Not available yet" data-zh="暂不可用">Not available yet</strong>
+            <p data-en="An early collection prototype exists, but there is no Linux app to use yet." data-zh="已有早期采集原型，但还没有可使用的 Linux 应用。">An early collection prototype exists, but there is no Linux app to use yet.</p>
           </article>
           <article>
             <span class="platform-mark">Windows</span>
-            <strong data-en="Unavailable to users" data-zh="用户暂不可用">Unavailable to users</strong>
-            <p data-en="Interfaces and directories are reserved; the Windows collector and client are not implemented." data-zh="已预留接口与目录；Windows 采集器和客户端尚未实现。">Interfaces and directories are reserved; the Windows collector and client are not implemented.</p>
+            <strong data-en="Planned" data-zh="规划中">Planned</strong>
+            <p data-en="There is no Windows version yet." data-zh="目前没有 Windows 版本。">There is no Windows version yet.</p>
           </article>
           <article>
             <span class="platform-mark">Android</span>
-            <strong data-en="Unavailable to users" data-zh="用户暂不可用">Unavailable to users</strong>
-            <p data-en="A future platform direction; there is no usable Android product." data-zh="属于后续平台规划，尚无可用的 Android 产品。">A future platform direction; there is no usable Android product.</p>
+            <strong data-en="Planned" data-zh="规划中">Planned</strong>
+            <p data-en="There is no Android version yet." data-zh="目前没有 Android 版本。">There is no Android version yet.</p>
           </article>
         </div>
 
@@ -251,9 +246,9 @@
       <section class="section status-section">
         <div>
           <p class="section-label" data-en="CURRENT STATUS" data-zh="当前状态">CURRENT STATUS</p>
-          <h2 data-en="Follow the prototype as it develops." data-zh="关注原型的后续进展。">Follow the prototype as it develops.</h2>
-          <p data-en="The macOS prototype is for testing, not a production-ready release. Proactive notifications, reversible blocking, broader behavioral baselines, threat intelligence, and on-device AI explanations remain planned. Product-runtime AI analysis is not connected. Follow future updates here as the private beta develops." data-zh="macOS 原型目前供测试，尚非生产级版本。主动通知、可恢复的连接阻断、更完整的行为基线、威胁情报与本机 AI 解释仍在规划中；产品运行时尚未接入 AI 分析。内测进展将在此持续更新。">
-            The macOS prototype is for testing, not a production-ready release. Proactive notifications, reversible blocking, broader behavioral baselines, threat intelligence, and on-device AI explanations remain planned. Product-runtime AI analysis is not connected. Follow future updates here as the private beta develops.
+          <h2 data-en="Follow our progress." data-zh="关注我们的进展。">Follow our progress.</h2>
+          <p data-en="Pavu is still being tested on macOS. You can review findings in the app and get suggestions, but system notifications and connection blocking are not available yet." data-zh="Pavu 仍在 macOS 上测试。你可以在应用内查看发现和建议；系统通知与连接阻断暂不可用。">
+            Pavu is still being tested on macOS. You can review findings in the app and get suggestions, but system notifications and connection blocking are not available yet.
           </p>
         </div>
         <a class="button button-light" href="https://github.com/pavulabs" rel="noreferrer" data-en="Follow development" data-zh="关注开发进展">Follow development</a>
@@ -265,7 +260,7 @@
         <img src="assets/pavu-icon.png" alt="" width="34" height="34" />
         <span>Pavu Labs</span>
       </div>
-      <p data-en="Local-first application security. Public source access is being prepared." data-zh="本机优先的应用安全。公开源码访问正在准备中。">Local-first application security. Public source access is being prepared.</p>
+      <p data-en="See more. Share less." data-zh="看得更多，分享更少。">See more. Share less.</p>
       <p>© <span id="year"></span> Pavu Labs</p>
     </footer>
   </body>

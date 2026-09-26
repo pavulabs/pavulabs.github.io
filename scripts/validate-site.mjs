@@ -1,6 +1,13 @@
 import { access, readFile } from "node:fs/promises";
 
 const html = await readFile("index.html", "utf8");
+const canonicalUrl = "https://pavu.cn/";
+if (!html.includes(`<link rel="canonical" href="${canonicalUrl}" />`)) {
+  throw new Error(`Expected canonical URL: ${canonicalUrl}`);
+}
+if (!html.includes(`<meta property="og:url" content="${canonicalUrl}" />`)) {
+  throw new Error(`Expected Open Graph URL: ${canonicalUrl}`);
+}
 const requiredFiles = [
   ".nojekyll",
   "app.js",

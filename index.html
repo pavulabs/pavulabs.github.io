@@ -9,11 +9,14 @@
       content="Pavu is a privacy-preserving, local-first network behavior analyzer for personal devices."
     />
     <title>Pavu — Local-first network security</title>
+    <link rel="canonical" href="https://pavu.cn/" />
+    <meta property="og:url" content="https://pavu.cn/" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <link rel="stylesheet" href="styles.css" />
     <script defer src="app.js"></script>
   </head>
   <body>
+    <canvas class="network-background" aria-hidden="true"></canvas>
     <a class="skip-link" href="#main" data-en="Skip to content" data-zh="跳到正文">Skip to content</a>
 
     <header class="site-header">
@@ -25,6 +28,7 @@
         <a href="#product" data-en="Product" data-zh="产品">Product</a>
         <a href="#privacy" data-en="Privacy" data-zh="隐私">Privacy</a>
         <a href="#architecture" data-en="Architecture" data-zh="架构">Architecture</a>
+        <a href="#open-source" data-en="Open source" data-zh="开源">Open source</a>
       </nav>
       <div class="header-actions">
         <button class="language-button" type="button" aria-label="Switch language">中文</button>
@@ -37,13 +41,13 @@
         <div class="hero-copy">
           <div class="eyebrow">
             <span class="pulse" aria-hidden="true"></span>
-            <span data-en="Private beta · macOS 14+" data-zh="内测阶段 · macOS 14+">Private beta · macOS 14+</span>
+            <span data-en="Private beta · macOS, Linux & Windows" data-zh="内测阶段 · macOS、Linux 与 Windows">Private beta · macOS, Linux & Windows</span>
           </div>
           <h1 data-en="Understand what your apps do on the network." data-zh="看清每个应用在网络上做了什么。">
             Understand what your apps do on the network.
           </h1>
-          <p class="hero-lede" data-en="Pavu connects network activity, application identity, and local file events to surface behavior worth your attention—without decrypting TLS or uploading your data." data-zh="Pavu 将网络活动、应用身份与本地文件事件关联起来，发现值得关注的行为；不解密 TLS，也不上传你的数据。">
-            Pavu connects network activity, application identity, and local file events to surface behavior worth your attention—without decrypting TLS or uploading your data.
+          <p class="hero-lede" data-en="Pavu connects network activity, application identity, and local file events across macOS, Linux, and Windows to surface behavior worth your attention—without decrypting TLS or uploading your data." data-zh="Pavu 面向 macOS、Linux 与 Windows，将网络活动、应用身份和本地文件事件关联起来，发现值得关注的行为；不解密 TLS，也不上传你的数据。">
+            Pavu connects network activity, application identity, and local file events across macOS, Linux, and Windows to surface behavior worth your attention—without decrypting TLS or uploading your data.
           </p>
           <div class="hero-actions">
             <a class="button" href="#product" data-en="Explore Pavu" data-zh="了解 Pavu">Explore Pavu</a>
@@ -52,7 +56,7 @@
           <ul class="trust-list" aria-label="Product principles">
             <li data-en="Local-first analysis" data-zh="本机优先分析">Local-first analysis</li>
             <li data-en="Metadata only" data-zh="只采集元数据">Metadata only</li>
-            <li data-en="User-controlled" data-zh="由用户掌控">User-controlled</li>
+            <li data-en="Apache 2.0 open source" data-zh="Apache 2.0 开源">Apache 2.0 open source</li>
           </ul>
         </div>
 
@@ -196,12 +200,48 @@
         </div>
       </section>
 
+      <section class="section open-source-section" id="open-source">
+        <div class="section-heading compact">
+          <span class="section-index">04</span>
+          <div>
+            <p class="section-label" data-en="OPEN SOURCE" data-zh="开源项目">OPEN SOURCE</p>
+            <h2 data-en="Open code. Shared core. Platform-native protection." data-zh="开放代码，共享核心，原生平台防护。">Open code. Shared core. Platform-native protection.</h2>
+            <p data-en="Pavu is an open-source project licensed under Apache License 2.0. Its shared Rust core keeps detection and data semantics consistent, while native adapters integrate with each operating system's supported security interfaces. Public source access is being prepared." data-zh="Pavu 是采用 Apache License 2.0 的开源项目。共享 Rust Core 保持检测逻辑与数据语义一致，原生适配器则接入各操作系统正式支持的安全接口。公开源码访问正在准备中。">
+              Pavu is an open-source project licensed under Apache License 2.0. Its shared Rust core keeps detection and data semantics consistent, while native adapters integrate with each operating system's supported security interfaces. Public source access is being prepared.
+            </p>
+          </div>
+        </div>
+
+        <div class="platform-grid" aria-label="Platform status">
+          <article>
+            <span class="platform-mark">macOS</span>
+            <strong data-en="Private beta" data-zh="内测阶段">Private beta</strong>
+            <p data-en="Network Extension collector and native SwiftUI application." data-zh="Network Extension 采集器与原生 SwiftUI 应用。">Network Extension collector and native SwiftUI application.</p>
+          </article>
+          <article>
+            <span class="platform-mark">Linux</span>
+            <strong data-en="Collector prototype" data-zh="采集器原型">Collector prototype</strong>
+            <p data-en="eBPF observation path connected to the shared Pavu Core." data-zh="eBPF 观察链路已接入共享 Pavu Core。">eBPF observation path connected to the shared Pavu Core.</p>
+          </article>
+          <article>
+            <span class="platform-mark">Windows</span>
+            <strong data-en="Platform adapter planned" data-zh="平台适配器规划中">Platform adapter planned</strong>
+            <p data-en="Windows Filtering Platform integration follows the same local API." data-zh="Windows Filtering Platform 将沿用同一套本地 API。">Windows Filtering Platform integration follows the same local API.</p>
+          </article>
+        </div>
+
+        <a class="open-source-link" href="https://github.com/pavulabs" rel="noreferrer">
+          <span data-en="Follow development on GitHub" data-zh="在 GitHub 关注开发进展">Follow development on GitHub</span>
+          <span aria-hidden="true">↗</span>
+        </a>
+      </section>
+
       <section class="section status-section">
         <div>
           <p class="section-label" data-en="CURRENT STATUS" data-zh="当前状态">CURRENT STATUS</p>
           <h2 data-en="Built for careful real-world validation." data-zh="为谨慎的真实环境验证而构建。">Built for careful real-world validation.</h2>
-          <p data-en="Pavu for macOS is currently in private beta. Network collection uses Apple-supported system extension APIs and observes without blocking. File-activity collection remains disabled in public builds until Apple grants the Endpoint Security entitlement." data-zh="Pavu macOS 版本目前处于内测阶段。网络采集使用 Apple 官方支持的系统扩展 API，默认仅观察、不阻断。在 Apple 批准 Endpoint Security entitlement 之前，公开版本中的文件活动采集保持禁用。">
-            Pavu for macOS is currently in private beta. Network collection uses Apple-supported system extension APIs and observes without blocking. File-activity collection remains disabled in public builds until Apple grants the Endpoint Security entitlement.
+          <p data-en="Pavu for macOS is currently in private beta, the Linux collector is an early prototype, and the Windows adapter is planned. macOS network collection uses Apple-supported system extension APIs and observes without blocking. File-activity collection remains disabled in public builds until Apple grants the Endpoint Security entitlement." data-zh="Pavu macOS 版本目前处于内测阶段，Linux 采集器为早期原型，Windows 适配器正在规划中。macOS 网络采集使用 Apple 官方支持的系统扩展 API，默认仅观察、不阻断。在 Apple 批准 Endpoint Security entitlement 之前，公开版本中的文件活动采集保持禁用。">
+            Pavu for macOS is currently in private beta, the Linux collector is an early prototype, and the Windows adapter is planned. macOS network collection uses Apple-supported system extension APIs and observes without blocking. File-activity collection remains disabled in public builds until Apple grants the Endpoint Security entitlement.
           </p>
         </div>
         <a class="button button-light" href="https://github.com/pavulabs" rel="noreferrer" data-en="Visit Pavu Labs on GitHub" data-zh="访问 Pavu Labs GitHub">Visit Pavu Labs on GitHub</a>

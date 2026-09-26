@@ -9,7 +9,7 @@ Product implementation and current platform status live in the [Pavu repository]
 ## Domain and deployment
 
 - The GitHub Pages custom domain is `pavu.cn`; the repository's homepage is `https://pavu.cn/`.
-- Preview changes on the separate [Pavu beta site](https://pavu.cn/pavu-beta/) ([source repository](https://github.com/pavulabs/pavu-beta)) before publishing them here.
+- Preview changes on the separate [Pavu beta site](https://pavu.cn/126b60f0c16bd022fb83a913e1b83cd0/) ([source repository](https://github.com/pavulabs/126b60f0c16bd022fb83a913e1b83cd0)) before publishing them here.
 - DNS for the apex domain uses GitHub Pages' four `A` records and four `AAAA` records. `www.pavu.cn` is a `CNAME` to `pavulabs.github.io`. GitHub Pages redirects the `www` host to the apex domain when its certificate is ready.
 - GitHub Actions validates the static site, uploads it, and deploys it to the `github-pages` environment on pushes to `main`. Pull requests run the same validation without deploying.
 - The `github-pages` environment requires explicit approval from `caiwl` before a production deployment proceeds. The repository has auto-merge disabled. The owner approval workflow records a successful commit status only after `caiwl` comments `/approve-production FULL_40_CHARACTER_HEAD_SHA` on the PR; a new push requires a new approval. Add `Owner publication approval` as a required branch protection status once this workflow is on `main`.

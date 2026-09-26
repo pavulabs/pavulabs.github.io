@@ -2,7 +2,9 @@
 
 Official website for Pavu Labs: [pavu.cn](https://pavu.cn/). This repository is a static site deployed by GitHub Pages from `main` through [`.github/workflows/pages.yml`](.github/workflows/pages.yml).
 
-Pavu is a privacy-preserving, local-first network behavior analyzer for personal devices. Product implementation and current platform status live in the [Pavu repository](https://github.com/pavulabs/pavu).
+Pavu is a local-first application security project for individuals. Its macOS prototype has real network activity and in-app findings. An observe-only Linux collector prototype exists, while Linux, Windows, and Android products are not yet available to users. Public access to the product source is being prepared.
+
+Product implementation and current platform status live in the [Pavu repository](https://github.com/pavulabs/pavu).
 
 ## Domain and deployment
 

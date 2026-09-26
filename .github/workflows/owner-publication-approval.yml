@@ -1,0 +1,81 @@
+name: Owner publication approval
+
+on:
+  pull_request_target:
+    branches: [main]
+    types: [opened, synchronize, reopened, ready_for_review]
+  issue_comment:
+    types: [created]
+
+permissions:
+  contents: read
+
+jobs:
+  approval:
+    name: Record owner publication approval
+    if: >-
+      github.event_name == 'pull_request_target' ||
+      (github.event_name == 'issue_comment' && github.event.issue.pull_request != null)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      pull-requests: read
+      statuses: write
+    steps:
+      - name: Require approval of the exact PR revision
+        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8.0.0
+        with:
+          github-token: ${{ github.token }}
+          script: |
+            const { owner, repo } = context.repo;
+            const statusContext = "Owner publication approval";
+
+            if (context.eventName === "pull_request_target") {
+              const pr = context.payload.pull_request;
+              if (pr.base.ref !== "main" || pr.head.repo?.full_name !== `${owner}/${repo}`) {
+                return;
+              }
+
+              await github.rest.repos.createCommitStatus({
+                owner,
+                repo,
+                sha: pr.head.sha,
+                state: "pending",
+                context: statusContext,
+                description: "Waiting for caiwl to review this exact revision",
+                target_url: pr.html_url,
+              });
+              return;
+            }
+
+            const comment = context.payload.comment;
+            if (comment.user?.id !== 5763175) {
+              return;
+            }
+
+            const approval = comment.body?.trim().match(/^\/approve-production\s+([0-9a-f]{40})$/i);
+            if (!approval) {
+              return;
+            }
+
+            const pull_number = context.payload.issue.number;
+            const { data: pr } = await github.rest.pulls.get({ owner, repo, pull_number });
+            const reviewedSha = approval[1].toLowerCase();
+            if (
+              pr.state !== "open" || pr.draft || pr.base.ref !== "main" ||
+              pr.head.repo?.full_name !== `${owner}/${repo}` || pr.head.sha !== reviewedSha
+            ) {
+              core.setFailed("Approval must name the current full commit SHA of an open, non-draft PR targeting main.");
+              return;
+            }
+
+            await github.rest.repos.createCommitStatus({
+              owner,
+              repo,
+              sha: reviewedSha,
+              state: "success",
+              context: statusContext,
+              description: "caiwl approved this revision for publication",
+              target_url: comment.html_url,
+            });

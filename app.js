@@ -6,7 +6,7 @@ let language = preferredLanguage === "zh" ? "zh" : "en";
 function applyLanguage(nextLanguage) {
   language = nextLanguage;
   document.documentElement.lang = language === "zh" ? "zh-CN" : "en";
-  document.title = language === "zh" ? "Pavu — 本机优先的网络安全" : "Pavu — Local-first network security";
+  document.title = language === "zh" ? "Pavu — 本机优先的应用安全" : "Pavu — Local-first application security";
 
   translatable.forEach((element) => {
     element.textContent = element.dataset[language];

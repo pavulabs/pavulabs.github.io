@@ -42,7 +42,7 @@ jobs:
       - name: Check for an existing review of this commit
         id: existing_review
         if: steps.configuration.outputs.enabled == 'true'
-        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8.0.0
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         env:
           REVIEWED_COMMIT: ${{ github.event.pull_request.head.sha }}
         with:
@@ -160,7 +160,7 @@ jobs:
       pull-requests: write
     steps:
       - name: Create ReviewBot review for commit
-        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8.0.0
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         env:
           REVIEWBOT_MESSAGE: ${{ needs.review.outputs.final_message }}
           MODEL_ID_B64: ${{ needs.review.outputs.model_id_b64 }}

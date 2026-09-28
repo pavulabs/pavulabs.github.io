@@ -41,7 +41,7 @@ jobs:
     steps:
       - name: Parse and authorize command
         id: command
-        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8.0.0
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         with:
           github-token: ${{ github.token }}
           script: |
@@ -217,7 +217,7 @@ jobs:
       - name: Collect prior ReviewBot findings for recheck
         id: history
         if: steps.configuration.outputs.enabled == 'true' && needs.prepare.outputs.command == 'recheck'
-        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8.0.0
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         env:
           PULL_NUMBER: ${{ needs.prepare.outputs.pull_number }}
         with:
@@ -379,7 +379,7 @@ jobs:
       pull-requests: write
     steps:
       - name: Publish idempotent response
-        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8.0.0
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         env:
           REVIEWBOT_MESSAGE: ${{ needs.analyze.outputs.final_message }}
           MODEL_ID_B64: ${{ needs.analyze.outputs.model_id_b64 }}

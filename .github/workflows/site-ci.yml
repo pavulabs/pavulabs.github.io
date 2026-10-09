@@ -22,4 +22,4 @@ jobs:
         with:
           persist-credentials: false
       - name: Validate static assets and JavaScript
-        run: node --check app.js && node scripts/validate-site.mjs
+        run: node --check app.js && node scripts/validate-site.mjs && node --test scripts/test-app.mjs

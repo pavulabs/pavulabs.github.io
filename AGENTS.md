@@ -14,7 +14,7 @@ This repository publishes the public Pavu Labs site at <https://pavu.cn/> throug
 
 - `https://pavu.cn/` is the canonical URL. The Pages workflow deploys the static site from `main` to the `github-pages` environment.
 - Keep site assets relative so the page works on the custom domain and preview servers.
-- Run `node --check app.js && node scripts/validate-site.mjs` for site changes.
+- Run `node --check app.js && node scripts/validate-site.mjs && node --test scripts/test-app.mjs` for site changes.
 - Keep GitHub Actions pinned to full commit SHAs. Review any change to deployment, permissions, external requests, or ReviewBot workflows for security and privacy impact.
 
 ## ReviewBot

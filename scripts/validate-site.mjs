@@ -14,6 +14,8 @@ const requiredFiles = [
   "assets/pavu-icon.png",
   "favicon.svg",
   "index.html",
+  "robots.txt",
+  "sitemap.xml",
   "styles.css",
 ];
 

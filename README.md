@@ -16,6 +16,12 @@ Product implementation and current platform status live in the [Pavu repository]
 
 The site is published with a custom GitHub Actions workflow. GitHub Pages stores the custom domain in repository settings; a `CNAME` file is not used by this deployment mode.
 
+## Search discovery
+
+`robots.txt` allows crawling and points to `https://pavu.cn/sitemap.xml`. The sitemap lists the site's only canonical page, `https://pavu.cn/`. The language toggle and section anchors share this URL; they are not separate sitemap entries. Add future entries only when their canonical pages exist. Do not invent `lastmod` dates for unchanged content.
+
+After an approved merge and deployment, verify that both files return HTTP 200, then submit `https://pavu.cn/sitemap.xml` in the verified Google Search Console property and inspect the homepage URL. A submitted sitemap helps discovery but does not confirm indexing.
+
 ## ReviewBot
 
 The Ark-based ReviewBot is shared in design with the [Pavu product repository](https://github.com/pavulabs/pavu/blob/main/docs/REVIEWBOT.en.md). It reviews each new commit of a non-draft, same-repository pull request and supports `@reviewbot review`, `@reviewbot recheck`, and `@reviewbot explain` from collaborators with write access. It produces advisory comments, never approvals or merges. Fork pull requests are skipped.

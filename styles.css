@@ -681,6 +681,39 @@ h3 {
   white-space: nowrap;
 }
 
+.about-section {
+  scroll-margin-top: 6rem;
+}
+
+.contact-card {
+  padding: clamp(1.25rem, 4vw, 2rem);
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: var(--panel);
+}
+
+.contact-card h3 {
+  margin-top: 0;
+}
+
+.contact-card p {
+  color: var(--muted);
+}
+
+.contact-address {
+  display: block;
+  width: 360px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+}
+
+.contact-card .contact-note {
+  max-width: 44rem;
+  margin-bottom: 0;
+  font-size: 0.875rem;
+}
+
 footer {
   display: grid;
   width: min(calc(100% - 2rem), var(--max));

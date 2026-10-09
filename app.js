@@ -1,6 +1,11 @@
 const translatable = document.querySelectorAll("[data-en][data-zh]");
 const languageButton = document.querySelector(".language-button");
-const preferredLanguage = window.localStorage.getItem("pavu-language");
+let preferredLanguage;
+try {
+  preferredLanguage = window.localStorage.getItem("pavu-language");
+} catch {
+  // Storage may be disabled; the page must still initialize.
+}
 let language = preferredLanguage === "zh" ? "zh" : "en";
 
 function applyLanguage(nextLanguage) {
@@ -21,8 +26,12 @@ function applyLanguage(nextLanguage) {
 
 languageButton.addEventListener("click", () => {
   const nextLanguage = language === "zh" ? "en" : "zh";
-  window.localStorage.setItem("pavu-language", nextLanguage);
   applyLanguage(nextLanguage);
+  try {
+    window.localStorage.setItem("pavu-language", nextLanguage);
+  } catch {
+    // Keep the selected language for this page even when it cannot be saved.
+  }
 });
 
 document.getElementById("year").textContent = new Date().getFullYear();

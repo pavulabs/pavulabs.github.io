@@ -11,7 +11,7 @@ Product implementation and current platform status live in the [Pavu repository]
 - The GitHub Pages custom domain is `pavu.cn`; the repository's homepage is `https://pavu.cn/`.
 - DNS for the apex domain uses GitHub Pages' four `A` records and four `AAAA` records. `www.pavu.cn` is a `CNAME` to `pavulabs.github.io`. GitHub Pages redirects the `www` host to the apex domain when its certificate is ready.
 - GitHub Actions validates the static site, uploads it, and deploys it to the `github-pages` environment on pushes to `main`. Pull requests run the same validation without deploying.
-- Run `node --check app.js && node scripts/validate-site.mjs` locally before opening a pull request. No package installation or build step is needed.
+- Run `node --check app.js && node scripts/validate-site.mjs && node --test scripts/test-app.mjs` locally before opening a pull request. No package installation or build step is needed.
 - Check the [Pages settings](https://github.com/pavulabs/pavulabs.github.io/settings/pages) for certificate status. Enable **Enforce HTTPS** once GitHub finishes issuing the custom-domain certificate; GitHub does not allow this setting while issuance is pending.
 
 The site is published with a custom GitHub Actions workflow. GitHub Pages stores the custom domain in repository settings; a `CNAME` file is not used by this deployment mode.

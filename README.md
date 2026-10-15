@@ -16,6 +16,10 @@ Product implementation and current platform status live in the [Pavu repository]
 
 The site is published with a custom GitHub Actions workflow. GitHub Pages stores the custom domain in repository settings; a `CNAME` file is not used by this deployment mode.
 
+## Beta preview
+
+Larger visual changes are published first at `https://pavu.cn/beta/` for review. The `beta/` directory holds its own `index.html` and `styles.css` and reuses the root `app.js`, `favicon.svg` and `assets/` through relative `../` paths. The preview is marked `noindex`, keeps the root canonical URL, and is not listed in the sitemap. After the preview is approved, copy its page and styles to the root (restoring root-relative asset paths and removing the `noindex` tag) in a separate pull request.
+
 ## Search discovery
 
 `robots.txt` allows crawling and points to `https://pavu.cn/sitemap.xml`. The sitemap lists the site's only canonical page, `https://pavu.cn/`. The language toggle and section anchors share this URL; they are not separate sitemap entries. Add future entries only when their canonical pages exist. Do not invent `lastmod` dates for unchanged content.

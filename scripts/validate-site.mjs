@@ -77,4 +77,17 @@ if (!html.includes("data-en=") || !html.includes("data-zh=")) {
   throw new Error("Bilingual content markers are missing.");
 }
 
+// The beta preview must stay out of search results and resolve its relative
+// references from its own directory.
+const betaHtml = await readFile("beta/index.html", "utf8");
+if (!betaHtml.includes('<meta name="robots" content="noindex" />')) {
+  throw new Error("The beta preview must be marked noindex.");
+}
+for (const [, reference] of betaHtml.matchAll(/(?:href|src)="([^"]+)"/g)) {
+  if (/^(#|https?:\/\/|mailto:)/.test(reference)) {
+    continue;
+  }
+  await access(`beta/${reference.split(/[?#]/, 1)[0]}`);
+}
+
 console.log("Static site validation passed.");

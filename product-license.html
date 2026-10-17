@@ -1,0 +1,425 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#071229" />
+    <meta name="description" content="Licenses for Pavu and the open source components included in the Pavu app." />
+    <title>Pavu — Licenses</title>
+    <link rel="canonical" href="https://pavu.cn/product-license.html" />
+    <link rel="icon" type="image/png" href="assets/pavu-brush-favicon.png" />
+    <link rel="stylesheet" href="styles.css?v=20261015" />
+    <style>
+      .license-page { max-width: var(--max); margin: 0 auto; padding: 7rem var(--gutter) 4rem; display: grid; gap: 2.5rem; }
+      .license-page h1 { font-size: clamp(2rem, 4vw, 2.75rem); margin: 0; }
+      .license-page h1, .license-page h2 { max-width: none; }
+      .license-page h2 { font-size: 1.4rem; margin: 0 0 0.75rem; }
+      .license-page p { color: var(--muted); max-width: 70ch; margin: 0 0 0.75rem; }
+      .license-page section { display: grid; gap: 0.5rem; }
+      .license-page a { color: var(--accent); }
+      .license-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.25rem 1.5rem; }
+      .license-card dl { display: grid; grid-template-columns: max-content 1fr; gap: 0.4rem 1.25rem; margin: 0; }
+      .license-card dt { color: var(--faint); }
+      .license-card dd { margin: 0; }
+      .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
+      .license-page table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+      .license-page th, .license-page td { text-align: left; padding: 0.6rem 0.9rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+      .license-page th { color: var(--faint); font-weight: 600; white-space: nowrap; }
+      .license-page tr:last-child td { border-bottom: 0; }
+      .mono { font-family: var(--font-mono); font-size: 0.86em; white-space: nowrap; }
+      .license-text { background: var(--surface-2); border: 1px solid var(--line); border-radius: var(--radius); padding: 1rem 1.25rem; max-height: 28rem; overflow: auto; white-space: pre-wrap; font: 0.82rem/1.55 var(--font-mono); color: var(--muted); margin: 0; }
+      .site-header .header-actions { margin-left: auto; }
+      .license-page td a { white-space: nowrap; }
+      .back-link { color: var(--muted); text-decoration: none; }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="./" aria-label="Pavu home">
+        <img src="assets/pavu-brush-icon.png" alt="" width="40" height="40" />
+        <span>Pavu</span>
+      </a>
+      <div class="header-actions">
+        <button class="language-button" type="button" aria-label="Switch language">中文</button>
+        <a class="button button-small" href="https://github.com/pavulabs/pavu" rel="noreferrer">GitHub</a>
+      </div>
+    </header>
+
+    <main id="main" class="license-page">
+      <section>
+        <a class="back-link" href="./" data-en="← Back to pavu.cn" data-zh="← 返回 pavu.cn">← Back to pavu.cn</a>
+        <h1 data-en="Licenses" data-zh="许可证">Licenses</h1>
+        <p data-en="Pavu is open source under the Apache License 2.0. The Pavu app also includes the open source components listed below; each keeps its own license." data-zh="Pavu 以 Apache License 2.0 开源。Pavu App 还包含下面列出的开源组件，它们各自遵循自己的许可证。">Pavu is open source under the Apache License 2.0. The Pavu app also includes the open source components listed below; each keeps its own license.</p>
+      </section>
+
+      <section id="pavu">
+        <h2>Pavu</h2>
+        <div class="license-card">
+          <dl>
+            <dt data-en="License" data-zh="许可证">License</dt><dd><a href="#apache-2-0">Apache License 2.0</a> <span class="mono">(Apache-2.0)</span></dd>
+            <dt data-en="Copyright" data-zh="版权">Copyright</dt><dd>Copyright 2026 PavuLabs</dd>
+            <dt data-en="Source code" data-zh="源代码">Source code</dt><dd><a href="https://github.com/pavulabs/pavu" rel="noreferrer">github.com/pavulabs/pavu</a></dd>
+            <dt>NOTICE</dt><dd>Pavu — Copyright 2026 PavuLabs. This product includes software developed by PavuLabs.</dd>
+          </dl>
+        </div>
+        <p data-en="The Pavu name and logo are trademarks and are not licensed under Apache-2.0; see TRADEMARKS.md in the source repository." data-zh="Pavu 名称和标志属于商标，不在 Apache-2.0 授权范围内，详见源代码仓库中的 TRADEMARKS.md。">The Pavu name and logo are trademarks and are not licensed under Apache-2.0; see TRADEMARKS.md in the source repository.</p>
+      </section>
+
+      <section id="components">
+        <h2 data-en="Open source components in the app" data-zh="App 中包含的开源组件">Open source components in the app</h2>
+        <p data-en="These components are compiled into the Pavu macOS app. Where a component offers a choice of licenses, the column “Used under” shows the one Pavu uses." data-zh="这些组件会被编译进 Pavu macOS App。组件提供多种许可证可选时，“采用”一栏是 Pavu 选用的那一种。">These components are compiled into the Pavu macOS app. Where a component offers a choice of licenses, the column “Used under” shows the one Pavu uses.</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th data-en="Component" data-zh="组件">Component</th><th data-en="Version" data-zh="版本">Version</th><th data-en="License" data-zh="许可证">License</th><th data-en="Used under" data-zh="采用">Used under</th><th data-en="Copyright / authors" data-zh="版权 / 作者">Copyright / authors</th></tr></thead>
+            <tbody>
+          <tr><td><a href="https://github.com/apple/swift-protobuf" rel="noreferrer">SwiftProtobuf</a></td><td class="mono">1.38.1</td><td class="mono">Apache-2.0 + Runtime Library Exception</td><td><a href="#apache-2-0">Apache-2.0</a></td><td>Apple Inc. and the swift-protobuf project authors</td></tr>
+          <tr><td><a href="https://sqlite.org/" rel="noreferrer">SQLite</a></td><td class="mono">3.53.2</td><td data-en="Public domain" data-zh="公有领域">Public domain</td><td><a href="#sqlite" data-en="Public domain" data-zh="公有领域">Public domain</a></td><td data-en="The SQLite authors (bundled through libsqlite3-sys)" data-zh="SQLite 作者（经 libsqlite3-sys 内置）">The SQLite authors (bundled through libsqlite3-sys)</td></tr>
+          <tr><td><a href="https://github.com/rust-lang/rust" rel="noreferrer">Rust standard library</a></td><td class="mono">—</td><td class="mono">MIT OR Apache-2.0</td><td><a href="#apache-2-0">Apache-2.0</a></td><td>The Rust Project Developers</td></tr>
+          <tr><td><a href="https://github.com/dtolnay/anyhow" rel="noreferrer">anyhow</a></td><td class="mono">1.0.104</td><td class="mono">MIT OR Apache-2.0</td><td><a href="#apache-2-0">Apache-2.0</a></td><td>David Tolnay</td></tr>
+          <tr><td><a href="https://github.com/bitflags/bitflags" rel="noreferrer">bitflags</a></td><td class="mono">2.13.2</td><td class="mono">MIT OR Apache-2.0</td><td><a href="#apache-2-0">Apache-2.0</a></td><td>The Rust Project Developers</td></tr>
+          <tr><td><a href="https://github.com/tokio-rs/bytes" rel="noreferrer">bytes</a></td><td class="mono">1.12.1</td><td class="mono">MIT</td><td><a href="#mit">MIT</a></td><td>Copyright (c) 2018 Carl Lerche</td></tr>
+          <tr><td><a href="https://github.com/rust-lang/cfg-if" rel="noreferrer">cfg-if</a></td><td class="mono">1.0.5</td><td class="mono">MIT OR Apache-2.0</td><td><a href="#apache-2-0">Apache-2.0</a></td><td>Alex Crichton</td></tr>
+          <tr><td><a href="https://github.com/rayon-rs/either" rel="noreferrer">either</a></td><td class="mono">1.18.0</td><td class="mono">MIT OR Apache-2.0</td><td><a href="#apache-2-0">Apache-2.0</a></td><td>bluss</td></tr>
+          <tr><td><a href="https://github.com/sfackler/rust-fallible-iterator" rel="noreferrer">fallible-iterator</a></td><td class="mono">0.3.0</td><td class="mono">MIT/Apache-2.0</td><td><a href="#apache-2-0">Apache-2.0</a></td><td>The rust-openssl-verify Developers</td></tr>
+          <tr><td><a href="https://github.com/sfackler/fallible-streaming-iterator" rel="noreferrer">fallible-streaming-iterator</a></td><td class="mono">0.1.9</td><td class="mono">MIT/Apache-2.0</td><td><a href="#apache-2-0">Apache-2.0</a></td><td>The fallible-streaming-iterator Developers</td></tr>
+          <tr><td><a href="https://github.com/orlp/foldhash" rel="noreferrer">foldhash</a></td><td class="mono">0.2.0</td><td class="mono">Zlib</td><td><a href="#zlib">Zlib</a></td><td>Copyright (c) 2024 Orson Peters</td></tr>
+          <tr><td><a href="https://github.com/rust-random/getrandom" rel="noreferrer">getrandom</a></td><td class="mono">0.4.3</td><td class="mono">MIT OR Apache-2.0</td><td><a href="#apache-2-0">Apache-2.0</a></td><td>The rust-random Project Developers</td></tr>
+          <tr><td><a href="https://github.com/rust-lang/hashbrown" rel="noreferrer">hashbrown</a></td><td class="mono">0.17.1</td><td class="mono">MIT OR Apache-2.0</td><td><a href="#apache-2-0">Apache-2.0</a></td><td>Amanieu d&#x27;Antras</td></tr>
+          <tr><td><a href="https://github.com/djc/hashlink" rel="noreferrer">hashlink</a></td><td class="mono">0.12.2</td><td class="mono">MIT OR Apache-2.0</td><td><a href="#apache-2-0">Apache-2.0</a></td><td>The hashlink authors; derived in part from linked-hash-map, Copyright (c) 2015 The Rust Project Developers</td></tr>
+          <tr><td><a href="https://github.com/rust-itertools/itertools" rel="noreferrer">itertools</a></td><td class="mono">0.14.0</td><td class="mono">MIT OR Apache-2.0</td><td><a href="#apache-2-0">Apache-2.0</a></td><td>The itertools authors</td></tr>
+          <tr><td><a href="https://github.com/dtolnay/itoa" rel="noreferrer">itoa</a></td><td class="mono">1.0.18</td><td class="mono">MIT OR Apache-2.0</td><td><a href="#apache-2-0">Apache-2.0</a></td><td>David Tolnay</td></tr>
+          <tr><td><a href="https://github.com/rust-lang/libc" rel="noreferrer">libc</a></td><td class="mono">0.2.189</td><td class="mono">MIT OR Apache-2.0</td><td><a href="#apache-2-0">Apache-2.0</a></td><td>The Rust Project Developers</td></tr>
+          <tr><td><a href="https://github.com/rusqlite/rusqlite" rel="noreferrer">libsqlite3-sys</a></td><td class="mono">0.38.2</td><td class="mono">MIT</td><td><a href="#mit">MIT</a></td><td>Copyright (c) 2014 The rusqlite developers</td></tr>
+          <tr><td><a href="https://github.com/BurntSushi/memchr" rel="noreferrer">memchr</a></td><td class="mono">2.8.3</td><td class="mono">Unlicense OR MIT</td><td><a href="#mit">MIT</a></td><td>Copyright (c) 2015 Andrew Gallant</td></tr>
+          <tr><td><a href="https://github.com/tokio-rs/prost" rel="noreferrer">prost</a></td><td class="mono">0.14.4</td><td class="mono">Apache-2.0</td><td><a href="#apache-2-0">Apache-2.0</a></td><td>Dan Burkert, Lucio Franco, Casper Meijn, Tokio Contributors</td></tr>
+          <tr><td><a href="https://github.com/rusqlite/rusqlite" rel="noreferrer">rusqlite</a></td><td class="mono">0.40.2</td><td class="mono">MIT</td><td><a href="#mit">MIT</a></td><td>Copyright (c) 2014 The rusqlite developers</td></tr>
+          <tr><td><a href="https://github.com/serde-rs/serde" rel="noreferrer">serde</a></td><td class="mono">1.0.229</td><td class="mono">MIT OR Apache-2.0</td><td><a href="#apache-2-0">Apache-2.0</a></td><td>Erick Tryzelaar, David Tolnay</td></tr>
+          <tr><td><a href="https://github.com/serde-rs/serde" rel="noreferrer">serde_core</a></td><td class="mono">1.0.229</td><td class="mono">MIT OR Apache-2.0</td><td><a href="#apache-2-0">Apache-2.0</a></td><td>Erick Tryzelaar, David Tolnay</td></tr>
+          <tr><td><a href="https://github.com/serde-rs/json" rel="noreferrer">serde_json</a></td><td class="mono">1.0.151</td><td class="mono">MIT OR Apache-2.0</td><td><a href="#apache-2-0">Apache-2.0</a></td><td>Erick Tryzelaar, David Tolnay</td></tr>
+          <tr><td><a href="https://github.com/servo/rust-smallvec" rel="noreferrer">smallvec</a></td><td class="mono">1.16.1</td><td class="mono">MIT OR Apache-2.0</td><td><a href="#apache-2-0">Apache-2.0</a></td><td>The Servo Project Developers</td></tr>
+          <tr><td><a href="https://github.com/dtolnay/thiserror" rel="noreferrer">thiserror</a></td><td class="mono">2.0.21</td><td class="mono">MIT OR Apache-2.0</td><td><a href="#apache-2-0">Apache-2.0</a></td><td>David Tolnay</td></tr>
+          <tr><td><a href="https://github.com/uuid-rs/uuid" rel="noreferrer">uuid</a></td><td class="mono">1.28.0</td><td class="mono">Apache-2.0 OR MIT</td><td><a href="#apache-2-0">Apache-2.0</a></td><td>Ashley Mannix, Christopher Armstrong, Dylan DPC, Hunar Roop Kahlon</td></tr>
+          <tr><td><a href="https://github.com/dtolnay/zmij" rel="noreferrer">zmij</a></td><td class="mono">1.0.23</td><td class="mono">MIT</td><td><a href="#mit">MIT</a></td><td>David Tolnay</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="build-tools">
+        <h2 data-en="Used only to build the app" data-zh="只在构建时使用">Used only to build the app</h2>
+        <p data-en="These Rust crates generate code while Pavu is compiled. They are not included in the app." data-zh="这些 Rust 组件只在编译 Pavu 时生成代码，不会包含在 App 中。">These Rust crates generate code while Pavu is compiled. They are not included in the app.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th data-en="Component" data-zh="组件">Component</th><th data-en="Version" data-zh="版本">Version</th><th data-en="License" data-zh="许可证">License</th></tr></thead>
+            <tbody>
+          <tr><td><a href="https://github.com/dtolnay/proc-macro2" rel="noreferrer">proc-macro2</a></td><td class="mono">1.0.107</td><td class="mono">MIT OR Apache-2.0</td></tr>
+          <tr><td><a href="https://github.com/dtolnay/quote" rel="noreferrer">quote</a></td><td class="mono">1.0.47</td><td class="mono">MIT OR Apache-2.0</td></tr>
+          <tr><td><a href="https://github.com/dtolnay/syn" rel="noreferrer">syn</a></td><td class="mono">2.0.119, 3.0.6</td><td class="mono">MIT OR Apache-2.0</td></tr>
+          <tr><td><a href="https://github.com/serde-rs/serde" rel="noreferrer">serde_derive</a></td><td class="mono">1.0.229</td><td class="mono">MIT OR Apache-2.0</td></tr>
+          <tr><td><a href="https://github.com/dtolnay/thiserror" rel="noreferrer">thiserror-impl</a></td><td class="mono">2.0.21</td><td class="mono">MIT OR Apache-2.0</td></tr>
+          <tr><td><a href="https://github.com/tokio-rs/prost" rel="noreferrer">prost-derive</a></td><td class="mono">0.14.4</td><td class="mono">Apache-2.0</td></tr>
+          <tr><td><a href="https://github.com/dtolnay/unicode-ident" rel="noreferrer">unicode-ident</a></td><td class="mono">1.0.26</td><td class="mono">(MIT OR Apache-2.0) AND Unicode-3.0</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p data-en="macOS system frameworks (SwiftUI, NetworkExtension and others) are part of the operating system and are not shipped with Pavu." data-zh="macOS 系统框架（SwiftUI、NetworkExtension 等）属于操作系统，不随 Pavu 分发。">macOS system frameworks (SwiftUI, NetworkExtension and others) are part of the operating system and are not shipped with Pavu.</p>
+      </section>
+
+      <section id="apache-2-0">
+        <h2>Apache License 2.0</h2>
+        <p data-en="Applies to Pavu and to the components listed as Apache-2.0 above. SwiftProtobuf adds a Runtime Library Exception that waives the attribution requirements of sections 4(a), 4(b) and 4(d) for compiled binaries." data-zh="适用于 Pavu 以及上表中采用 Apache-2.0 的组件。SwiftProtobuf 另附运行库例外条款，对编译后的二进制免除第 4(a)、4(b)、4(d) 条的署名要求。">Applies to Pavu and to the components listed as Apache-2.0 above. SwiftProtobuf adds a Runtime Library Exception that waives the attribution requirements of sections 4(a), 4(b) and 4(d) for compiled binaries.</p>
+        <pre class="license-text">Apache License
+                           Version 2.0, January 2004
+                        http://www.apache.org/licenses/
+
+   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+
+   1. Definitions.
+
+      &quot;License&quot; shall mean the terms and conditions for use, reproduction,
+      and distribution as defined by Sections 1 through 9 of this document.
+
+      &quot;Licensor&quot; shall mean the copyright owner or entity authorized by
+      the copyright owner that is granting the License.
+
+      &quot;Legal Entity&quot; shall mean the union of the acting entity and all
+      other entities that control, are controlled by, or are under common
+      control with that entity. For the purposes of this definition,
+      &quot;control&quot; means (i) the power, direct or indirect, to cause the
+      direction or management of such entity, whether by contract or
+      otherwise, or (ii) ownership of fifty percent (50%) or more of the
+      outstanding shares, or (iii) beneficial ownership of such entity.
+
+      &quot;You&quot; (or &quot;Your&quot;) shall mean an individual or Legal Entity
+      exercising permissions granted by this License.
+
+      &quot;Source&quot; form shall mean the preferred form for making modifications,
+      including but not limited to software source code, documentation
+      source, and configuration files.
+
+      &quot;Object&quot; form shall mean any form resulting from mechanical
+      transformation or translation of a Source form, including but
+      not limited to compiled object code, generated documentation,
+      and conversions to other media types.
+
+      &quot;Work&quot; shall mean the work of authorship, whether in Source or
+      Object form, made available under the License, as indicated by a
+      copyright notice that is included in or attached to the work
+      (an example is provided in the Appendix below).
+
+      &quot;Derivative Works&quot; shall mean any work, whether in Source or Object
+      form, that is based on (or derived from) the Work and for which the
+      editorial revisions, annotations, elaborations, or other modifications
+      represent, as a whole, an original work of authorship. For the purposes
+      of this License, Derivative Works shall not include works that remain
+      separable from, or merely link (or bind by name) to the interfaces of,
+      the Work and Derivative Works thereof.
+
+      &quot;Contribution&quot; shall mean any work of authorship, including
+      the original version of the Work and any modifications or additions
+      to that Work or Derivative Works thereof, that is intentionally
+      submitted to Licensor for inclusion in the Work by the copyright owner
+      or by an individual or Legal Entity authorized to submit on behalf of
+      the copyright owner. For the purposes of this definition, &quot;submitted&quot;
+      means any form of electronic, verbal, or written communication sent
+      to the Licensor or its representatives, including but not limited to
+      communication on electronic mailing lists, source code control systems,
+      and issue tracking systems that are managed by, or on behalf of, the
+      Licensor for the purpose of discussing and improving the Work, but
+      excluding communication that is conspicuously marked or otherwise
+      designated in writing by the copyright owner as &quot;Not a Contribution.&quot;
+
+      &quot;Contributor&quot; shall mean Licensor and any individual or Legal Entity
+      on behalf of whom a Contribution has been received by Licensor and
+      subsequently incorporated within the Work.
+
+   2. Grant of Copyright License. Subject to the terms and conditions of
+      this License, each Contributor hereby grants to You a perpetual,
+      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+      copyright license to reproduce, prepare Derivative Works of,
+      publicly display, publicly perform, sublicense, and distribute the
+      Work and such Derivative Works in Source or Object form.
+
+   3. Grant of Patent License. Subject to the terms and conditions of
+      this License, each Contributor hereby grants to You a perpetual,
+      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+      (except as stated in this section) patent license to make, have made,
+      use, offer to sell, sell, import, and otherwise transfer the Work,
+      where such license applies only to those patent claims licensable
+      by such Contributor that are necessarily infringed by their
+      Contribution(s) alone or by combination of their Contribution(s)
+      with the Work to which such Contribution(s) was submitted. If You
+      institute patent litigation against any entity (including a
+      cross-claim or counterclaim in a lawsuit) alleging that the Work
+      or a Contribution incorporated within the Work constitutes direct
+      or contributory patent infringement, then any patent licenses
+      granted to You under this License for that Work shall terminate
+      as of the date such litigation is filed.
+
+   4. Redistribution. You may reproduce and distribute copies of the
+      Work or Derivative Works thereof in any medium, with or without
+      modifications, and in Source or Object form, provided that You
+      meet the following conditions:
+
+      (a) You must give any other recipients of the Work or
+          Derivative Works a copy of this License; and
+
+      (b) You must cause any modified files to carry prominent notices
+          stating that You changed the files; and
+
+      (c) You must retain, in the Source form of any Derivative Works
+          that You distribute, all copyright, patent, trademark, and
+          attribution notices from the Source form of the Work,
+          excluding those notices that do not pertain to any part of
+          the Derivative Works; and
+
+      (d) If the Work includes a &quot;NOTICE&quot; text file as part of its
+          distribution, then any Derivative Works that You distribute must
+          include a readable copy of the attribution notices contained
+          within such NOTICE file, excluding those notices that do not
+          pertain to any part of the Derivative Works, in at least one
+          of the following places: within a NOTICE text file distributed
+          as part of the Derivative Works; within the Source form or
+          documentation, if provided along with the Derivative Works; or,
+          within a display generated by the Derivative Works, if and
+          wherever such third-party notices normally appear. The contents
+          of the NOTICE file are for informational purposes only and
+          do not modify the License. You may add Your own attribution
+          notices within Derivative Works that You distribute, alongside
+          or as an addendum to the NOTICE text from the Work, provided
+          that such additional attribution notices cannot be construed
+          as modifying the License.
+
+      You may add Your own copyright statement to Your modifications and
+      may provide additional or different license terms and conditions
+      for use, reproduction, or distribution of Your modifications, or
+      for any such Derivative Works as a whole, provided Your use,
+      reproduction, and distribution of the Work otherwise complies with
+      the conditions stated in this License.
+
+   5. Submission of Contributions. Unless You explicitly state otherwise,
+      any Contribution intentionally submitted for inclusion in the Work
+      by You to the Licensor shall be under the terms and conditions of
+      this License, without any additional terms or conditions.
+      Notwithstanding the above, nothing herein shall supersede or modify
+      the terms of any separate license agreement you may have executed
+      with Licensor regarding such Contributions.
+
+   6. Trademarks. This License does not grant permission to use the trade
+      names, trademarks, service marks, or product names of the Licensor,
+      except as required for reasonable and customary use in describing the
+      origin of the Work and reproducing the content of the NOTICE file.
+
+   7. Disclaimer of Warranty. Unless required by applicable law or
+      agreed to in writing, Licensor provides the Work (and each
+      Contributor provides its Contributions) on an &quot;AS IS&quot; BASIS,
+      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+      implied, including, without limitation, any warranties or conditions
+      of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A
+      PARTICULAR PURPOSE. You are solely responsible for determining the
+      appropriateness of using or redistributing the Work and assume any
+      risks associated with Your exercise of permissions under this License.
+
+   8. Limitation of Liability. In no event and under no legal theory,
+      whether in tort (including negligence), contract, or otherwise,
+      unless required by applicable law (such as deliberate and grossly
+      negligent acts) or agreed to in writing, shall any Contributor be
+      liable to You for damages, including any direct, indirect, special,
+      incidental, or consequential damages of any character arising as a
+      result of this License or out of the use or inability to use the
+      Work (including but not limited to damages for loss of goodwill,
+      work stoppage, computer failure or malfunction, or any and all
+      other commercial damages or losses), even if such Contributor
+      has been advised of the possibility of such damages.
+
+   9. Accepting Warranty or Additional Liability. While redistributing
+      the Work or Derivative Works thereof, You may choose to offer,
+      and charge a fee for, acceptance of support, warranty, indemnity,
+      or other liability obligations and/or rights consistent with this
+      License. However, in accepting such obligations, You may act only
+      on Your own behalf and on Your sole responsibility, not on behalf
+      of any other Contributor, and only if You agree to indemnify,
+      defend, and hold each Contributor harmless for any liability
+      incurred by, or claims asserted against, such Contributor by reason
+      of your accepting any such warranty or additional liability.
+
+   END OF TERMS AND CONDITIONS
+
+   APPENDIX: How to apply the Apache License to your work.
+
+      To apply the Apache License to your work, attach the following
+      boilerplate notice, with the fields enclosed by brackets &quot;[]&quot;
+      replaced with your own identifying information. (Don&#x27;t include
+      the brackets!)  The text should be enclosed in the appropriate
+      comment syntax for the file format. We also recommend that a
+      file or class name and description of purpose be included on the
+      same &quot;printed page&quot; as the copyright notice for easier
+      identification within third-party archives.
+
+   Copyright [yyyy] [name of copyright owner]
+
+   Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.</pre>
+      </section>
+
+      <section id="mit">
+        <h2>MIT License</h2>
+        <p data-en="Applies to the components listed as MIT above, with these copyright notices." data-zh="适用于上表中采用 MIT 的组件，版权声明如下。">Applies to the components listed as MIT above, with these copyright notices.</p>
+        <pre class="license-text">bytes 1.12.1
+Copyright (c) 2018 Carl Lerche
+
+libsqlite3-sys 0.38.2
+Copyright (c) 2014 The rusqlite developers
+
+memchr 2.8.3
+Copyright (c) 2015 Andrew Gallant
+
+rusqlite 0.40.2
+Copyright (c) 2014 The rusqlite developers
+
+zmij 1.0.23
+Copyright (c) David Tolnay
+
+Permission is hereby granted, free of charge, to any
+person obtaining a copy of this software and associated
+documentation files (the &quot;Software&quot;), to deal in the
+Software without restriction, including without
+limitation the rights to use, copy, modify, merge,
+publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software
+is furnished to do so, subject to the following
+conditions:
+
+The above copyright notice and this permission notice
+shall be included in all copies or substantial portions
+of the Software.
+
+THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF
+ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED
+TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT
+SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR
+IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+DEALINGS IN THE SOFTWARE.</pre>
+      </section>
+
+      <section id="zlib">
+        <h2>zlib License</h2>
+        <p data-en="Applies to foldhash." data-zh="适用于 foldhash。">Applies to foldhash.</p>
+        <pre class="license-text">Copyright (c) 2024 Orson Peters
+
+This software is provided &#x27;as-is&#x27;, without any express or implied warranty. In
+no event will the authors be held liable for any damages arising from the use of
+this software.
+
+Permission is granted to anyone to use this software for any purpose, including
+commercial applications, and to alter it and redistribute it freely, subject to
+the following restrictions:
+
+1. The origin of this software must not be misrepresented; you must not claim
+    that you wrote the original software. If you use this software in a product,
+    an acknowledgment in the product documentation would be appreciated but is
+    not required.
+
+2. Altered source versions must be plainly marked as such, and must not be
+    misrepresented as being the original software.
+
+3. This notice may not be removed or altered from any source distribution.</pre>
+      </section>
+
+      <section id="sqlite">
+        <h2>SQLite</h2>
+        <p data-en="SQLite is in the public domain. Its authors offer this blessing in place of a license:" data-zh="SQLite 属于公有领域。其作者以下面这段祝愿代替许可证：">SQLite is in the public domain. Its authors offer this blessing in place of a license:</p>
+        <pre class="license-text">May you do good and not evil.
+May you find forgiveness for yourself and forgive others.
+May you share freely, never taking more than you give.</pre>
+      </section>
+
+      <section>
+        <p data-en="This list covers the macOS app built from pavu main (Cargo.lock and Package.resolved, October 2026). If you find a missing or wrong entry, please open an issue on GitHub." data-zh="本列表对应由 pavu main 分支构建的 macOS App（依据 2026 年 10 月的 Cargo.lock 和 Package.resolved）。如发现遗漏或错误，请在 GitHub 上提交 issue。">This list covers the macOS app built from pavu main (Cargo.lock and Package.resolved, October 2026). If you find a missing or wrong entry, please open an issue on GitHub.</p>
+      </section>
+    </main>
+
+    <footer>
+      <div class="brand footer-brand">
+        <img src="assets/pavu-brush-icon.png" alt="" width="34" height="34" />
+        <span>Pavu Labs</span>
+      </div>
+      <p data-en="See more. Share less" data-zh="看得更多，分享更少">See more. Share less</p>
+      <p>© <span id="year"></span> Pavu Labs</p>
+    </footer>
+    <script src="license.js"></script>
+  </body>
+</html>

@@ -14,6 +14,8 @@ const requiredFiles = [
   "assets/pavu-icon.png",
   "favicon.svg",
   "index.html",
+  "license.js",
+  "product-license.html",
   "robots.txt",
   "sitemap.xml",
   "styles.css",
@@ -88,6 +90,21 @@ for (const [, reference] of betaHtml.matchAll(/(?:href|src)="([^"]+)"/g)) {
     continue;
   }
   await access(`beta/${reference.split(/[?#]/, 1)[0]}`);
+}
+
+// The license page resolves its relative references and in-page anchors on its own.
+const licenseHtml = await readFile("product-license.html", "utf8");
+for (const [, reference] of licenseHtml.matchAll(/(?:href|src)="([^"]+)"/g)) {
+  if (/^(#|https?:\/\/|mailto:|\.\/$)/.test(reference)) {
+    continue;
+  }
+  await access(reference.split(/[?#]/, 1)[0]);
+}
+const licenseIds = new Set([...licenseHtml.matchAll(/\sid="([^"]+)"/g)].map((match) => match[1]));
+for (const [, anchor] of licenseHtml.matchAll(/href="#([^"]+)"/g)) {
+  if (!licenseIds.has(anchor)) {
+    throw new Error(`Missing license page anchor target: #${anchor}`);
+  }
 }
 
 console.log("Static site validation passed.");

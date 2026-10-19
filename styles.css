@@ -943,6 +943,18 @@ h3 {
   color: var(--warn);
 }
 
+.platform-download {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.6rem;
+  margin-top: 1.25rem;
+}
+
+.platform-download p {
+  font-size: 0.88rem;
+}
+
 .open-source-link {
   display: inline-flex;
   min-height: 44px;

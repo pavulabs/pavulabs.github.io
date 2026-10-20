@@ -249,11 +249,8 @@ li + li {
 }
 
 .contact-address {
-  display: block;
-  max-width: 100%;
-  height: auto;
-  margin-top: 1rem;
-  border-radius: 0.5rem;
+  font-size: 1.15rem;
+  overflow-wrap: anywhere;
 }
 
 #contact > p:first-of-type {

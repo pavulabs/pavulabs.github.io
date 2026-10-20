@@ -8,7 +8,8 @@ This repository publishes the public Pavu Labs site at <https://pavu.cn/> throug
 - Describe macOS as a prototype or private beta, Linux as a collector prototype, and Windows/Android as planned until the product repository documents a different verified state. Compilation or a skeleton is not a supported release.
 - File access near network activity establishes process and time proximity only; it does not prove that file contents were uploaded.
 - Do not claim that missing collection capability means zero activity or safety.
-- Do not claim payload capture, TLS interception, automatic blocking, or cloud analysis as current features.
+- Do not claim payload capture, TLS interception, or cloud analysis as current features.
+- Describe blocking only as the product repository documents it (`rules.md`, `docs/PLATFORMS.md`): the user blocks a program's new connections, or turns on automatic blocking for a rule (off by default); programs that ship with macOS are not blocked; every block can be undone.
 
 ## Site and deployment
 

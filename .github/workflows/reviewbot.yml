@@ -1,7 +1,7 @@
 name: ReviewBot
 
 on:
-  pull_request_target:
+  pull_request_target: # zizmor: ignore[dangerous-triggers] reviewed: no PR code runs, fork PRs skipped; see README.md
     types: [opened, synchronize, reopened, ready_for_review]
 
 permissions:
@@ -149,6 +149,10 @@ jobs:
             printf '%s\n' "${delimiter}"
             printf 'model_id_b64=%s\n' "${model_id_b64}"
           } >> "${GITHUB_OUTPUT}"
+
+      - name: Remove review input
+        if: always()
+        run: rm -f "${RUNNER_TEMP}"/reviewbot-*
 
   publish:
     name: Publish pull request review

@@ -1,7 +1,14 @@
 name: ReviewBot
 
 on:
-  pull_request_target: # zizmor: ignore[dangerous-triggers] reviewed: no PR code runs, fork PRs skipped; see README.md
+  # The dangerous-triggers ignore below holds only while these invariants do;
+  # re-review it whenever a job condition or step changes:
+  # - the analysis job runs only for non-draft PRs from this repository's own
+  #   branches (fork PRs are skipped);
+  # - the PR head is checked out only to compute a diff, never executed;
+  # - the job with ARK_API_KEY has read-only permissions, and only the
+  #   separate publish job can write the review.
+  pull_request_target: # zizmor: ignore[dangerous-triggers] see the invariants above
     types: [opened, synchronize, reopened, ready_for_review]
 
 permissions:

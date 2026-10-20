@@ -12,7 +12,7 @@ Prioritize concrete, reproducible problems in this order: deployment and custom-
 For every finding, provide a P0-P3 priority, a short title, the exact changed file and tight line range, the failure scenario, why it matters, and the smallest safe correction. Confirm that the cited line is part of the pull-request diff. Separate facts from uncertainty and do not invent runtime behavior, APIs, test results, or external sources.
 
 Website-specific invariants:
-- The canonical domain is https://pavu.cn/; GitHub Pages publishes the static site from main via the Pages workflow.
+- The canonical domain is https://pavu.org/; GitHub Pages publishes the static site from main via the Pages workflow.
 - English and Chinese content must describe the same current product state.
 - A skeleton, compile-only target, or prototype must not be described as integrated, supported, or released.
 - File/network correlation proves process and time proximity only; it never proves that a file's contents were transmitted.

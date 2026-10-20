@@ -1,7 +1,7 @@
 import { access, readFile } from "node:fs/promises";
 
 const html = await readFile("index.html", "utf8");
-const canonicalUrl = "https://pavu.cn/";
+const canonicalUrl = "https://pavu.org/";
 if (!html.includes(`<link rel="canonical" href="${canonicalUrl}" />`)) {
   throw new Error(`Expected canonical URL: ${canonicalUrl}`);
 }

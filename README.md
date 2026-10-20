@@ -1,6 +1,6 @@
 # Pavu Labs website
 
-Official website for Pavu Labs: [pavu.cn](https://pavu.cn/). This repository is a static site deployed by GitHub Pages from `main` through [`.github/workflows/pages.yml`](.github/workflows/pages.yml).
+Official website for Pavu Labs: [pavu.org](https://pavu.org/). This repository is a static site deployed by GitHub Pages from `main` through [`.github/workflows/pages.yml`](.github/workflows/pages.yml).
 
 Pavu is a local-first application security project for individuals. Its macOS prototype has real network activity and in-app findings. An observe-only Linux collector prototype exists, while Linux, Windows, and Android products are not yet available to users. Public access to the product source is being prepared.
 
@@ -8,8 +8,9 @@ Product implementation and current platform status live in the [Pavu repository]
 
 ## Domain and deployment
 
-- The GitHub Pages custom domain is `pavu.cn`; the repository's homepage is `https://pavu.cn/`.
-- DNS for the apex domain uses GitHub Pages' four `A` records and four `AAAA` records. `www.pavu.cn` is a `CNAME` to `pavulabs.github.io`. GitHub Pages redirects the `www` host to the apex domain when its certificate is ready.
+- The GitHub Pages custom domain is `pavu.org`; the repository's homepage is `https://pavu.org/`.
+- DNS for `pavu.org` is on Cloudflare in DNS-only mode: the apex uses GitHub Pages' four `A` records and four `AAAA` records, and `www.pavu.org` is a `CNAME` to `pavulabs.github.io`. GitHub Pages redirects the `www` host to the apex domain when its certificate is ready.
+- `pavu.cn` (also on Cloudflare) permanently redirects every path to the same path on `https://pavu.org/`.
 - GitHub Actions validates the static site, uploads it, and deploys it to the `github-pages` environment on pushes to `main`. Pull requests run the same validation without deploying.
 - Run `node --check app.js && node scripts/validate-site.mjs && node --test scripts/test-app.mjs` locally before opening a pull request. No package installation or build step is needed.
 - Check the [Pages settings](https://github.com/pavulabs/pavulabs.github.io/settings/pages) for certificate status. Enable **Enforce HTTPS** once GitHub finishes issuing the custom-domain certificate; GitHub does not allow this setting while issuance is pending.
@@ -18,13 +19,13 @@ The site is published with a custom GitHub Actions workflow. GitHub Pages stores
 
 ## Beta preview
 
-Larger visual changes are published first at `https://pavu.cn/beta/` for review. The `beta/` directory holds its own `index.html` and `styles.css` and reuses the root `app.js`, `favicon.svg` and `assets/` through relative `../` paths. The preview is marked `noindex`, keeps the root canonical URL, and is not listed in the sitemap. After the preview is approved, copy its page and styles to the root (restoring root-relative asset paths and removing the `noindex` tag) in a separate pull request.
+Larger visual changes are published first at `https://pavu.org/beta/` for review. The `beta/` directory holds its own `index.html` and `styles.css` and reuses the root `app.js`, `favicon.svg` and `assets/` through relative `../` paths. The preview is marked `noindex`, keeps the root canonical URL, and is not listed in the sitemap. After the preview is approved, copy its page and styles to the root (restoring root-relative asset paths and removing the `noindex` tag) in a separate pull request.
 
 ## Search discovery
 
-`robots.txt` allows crawling and points to `https://pavu.cn/sitemap.xml`. The sitemap lists the site's only canonical page, `https://pavu.cn/`. The language toggle and section anchors share this URL; they are not separate sitemap entries. Add future entries only when their canonical pages exist. Do not invent `lastmod` dates for unchanged content.
+`robots.txt` allows crawling and points to `https://pavu.org/sitemap.xml`. The sitemap lists the site's only canonical page, `https://pavu.org/`. The language toggle and section anchors share this URL; they are not separate sitemap entries. Add future entries only when their canonical pages exist. Do not invent `lastmod` dates for unchanged content.
 
-After an approved merge and deployment, verify that both files return HTTP 200, then submit `https://pavu.cn/sitemap.xml` in the verified Google Search Console property and inspect the homepage URL. A submitted sitemap helps discovery but does not confirm indexing.
+After an approved merge and deployment, verify that both files return HTTP 200, then submit `https://pavu.org/sitemap.xml` in the verified Google Search Console property and inspect the homepage URL. A submitted sitemap helps discovery but does not confirm indexing.
 
 ## ReviewBot
 

@@ -28,7 +28,7 @@ After an approved merge and deployment, verify that both files return HTTP 200, 
 
 ## ReviewBot
 
-The Ark-based ReviewBot is shared in design with the [Pavu product repository](https://github.com/pavulabs/pavu/blob/main/docs/REVIEWBOT.en.md). It reviews each new commit of a non-draft, same-repository pull request and supports `@reviewbot review`, `@reviewbot recheck`, and `@reviewbot explain` from collaborators with write access. It produces advisory comments, never approvals or merges. Fork pull requests are skipped.
+The Ark-based ReviewBot is shared in design with the [Pavu product repository](https://github.com/pavulabs/pavu/blob/main/docs/REVIEWBOT.en.md). It reviews each new commit of a non-draft, same-repository pull request and supports `@reviewbot review`, `@reviewbot recheck`, and `@reviewbot explain` from collaborators with write access. It produces advisory comments, never approvals or merges. Fork pull requests are skipped. Unlike the private product repository, it runs on GitHub-hosted runners: hosted minutes are free for this public repository, and no self-hosted runner is exposed to its pull requests. Temporary review input is deleted at the end of each job.
 
 To enable it, add an **Agent Plan** API key as the repository Actions secret `ARK_API_KEY` in [Actions secrets](https://github.com/pavulabs/pavulabs.github.io/settings/secrets/actions). Optionally set repository variable `ARK_REVIEW_MODEL`; the default is `kimi-k3`. A normal pay-as-you-go Ark key is not interchangeable with the Agent Plan key. Without the secret, the automatic workflow exits with a notice and sends no code to Ark.
 

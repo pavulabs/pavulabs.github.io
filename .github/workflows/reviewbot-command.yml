@@ -1,7 +1,15 @@
 name: ReviewBot Commands
 
 on:
-  issue_comment:
+  # The dangerous-triggers ignore below holds only while these invariants do;
+  # re-review it whenever a job condition or step changes:
+  # - prepare acts only on commands from users with write permission, on PRs
+  #   whose head branch is in this repository;
+  # - analyze and publish run only when prepare says so;
+  # - the PR head is checked out only to compute a diff, never executed;
+  # - the job with ARK_API_KEY has read-only permissions, and only the
+  #   separate publish job can comment.
+  issue_comment: # zizmor: ignore[dangerous-triggers] see the invariants above
     types: [created]
   pull_request_review_comment:
     types: [created]
@@ -362,6 +370,10 @@ jobs:
             printf '%s\n' "${delimiter}"
             printf 'model_id_b64=%s\n' "${model_id_b64}"
           } >> "${GITHUB_OUTPUT}"
+
+      - name: Remove command input
+        if: always()
+        run: rm -f "${RUNNER_TEMP}"/reviewbot-command-*
 
   publish:
     name: Publish ReviewBot command response

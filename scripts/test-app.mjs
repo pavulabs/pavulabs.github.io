@@ -57,6 +57,89 @@ function startPage({ saved = null, failure } = {}) {
   return { document, copy, button, writes, click: () => listeners.click() };
 }
 
+const betaSource = await readFile(new URL("../beta/app.js", import.meta.url), "utf8");
+
+function startBeta({ saved = null, blocked = false } = {}) {
+  const handlers = {};
+  const writes = [];
+  const element = (name) => ({
+    attributes: {},
+    setAttribute(key, value) { this.attributes[key] = value; },
+    getAttribute(key) { return this.attributes[key] ?? null; },
+    addEventListener(key, callback) { handlers[name + ":" + key] = callback; },
+    classList: { toggle(key, value) { this[key] = value; } },
+    focus() { this.focused = true; },
+  });
+  const language = element("language");
+  const menu = element("menu");
+  menu.setAttribute("aria-expanded", "false");
+  const navigation = element("navigation");
+  const brand = element("brand");
+  const copy = { dataset: { en: "English content", zh: "中文内容" } };
+  const document = {
+    documentElement: {},
+    querySelectorAll: () => [copy],
+    querySelector: (selector) => ({
+      ".language-button": language, ".menu-button": menu, ".brand": brand,
+    })[selector],
+    getElementById: (id) => id === "primary-navigation" ? navigation : {},
+    addEventListener(key, callback) { handlers["document:" + key] = callback; },
+  };
+  const window = {
+    get localStorage() {
+      if (blocked) throw new Error("Storage blocked");
+      return {
+        getItem: () => saved,
+        setItem: (key, value) => writes.push([key, value]),
+      };
+    },
+    matchMedia: () => ({
+      addEventListener(key, callback) { handlers["viewport:" + key] = callback; },
+    }),
+  };
+  runInNewContext(betaSource, { document, window });
+  return { document, language, menu, navigation, brand, copy, writes, handlers };
+}
+
+test("Beta preserves and switches language with or without browser storage", () => {
+  for (const options of [{}, { saved: "zh" }, { saved: "invalid" }, { blocked: true }]) {
+    const page = startBeta(options);
+    const initiallyChinese = options.saved === "zh";
+    assert.equal(page.document.documentElement.lang, initiallyChinese ? "zh-CN" : "en");
+    page.handlers["language:click"]();
+    assert.equal(page.document.documentElement.lang, initiallyChinese ? "en" : "zh-CN");
+    assert.equal(page.copy.textContent, initiallyChinese ? "English content" : "中文内容");
+    assert.equal(page.menu.attributes["aria-label"], initiallyChinese ? "Open navigation" : "打开导航");
+    assert.equal(page.brand.attributes["aria-label"], initiallyChinese ? "Pavu home" : "Pavu 首页");
+    assert.equal(page.writes.length, options.blocked ? 0 : 1);
+  }
+});
+
+test("Beta mobile menu closes with Escape and restores focus", () => {
+  const page = startBeta();
+  page.handlers["menu:click"]();
+  assert.equal(page.menu.attributes["aria-expanded"], "true");
+  assert.equal(page.navigation.classList["is-open"], true);
+  page.handlers["document:keydown"]({ key: "Escape" });
+  assert.equal(page.menu.attributes["aria-expanded"], "false");
+  assert.equal(page.navigation.classList["is-open"], false);
+  assert.equal(page.menu.focused, true);
+});
+
+test("Beta mobile menu closes after navigation, outside clicks and desktop resize", () => {
+  const page = startBeta();
+  for (const close of [
+    () => page.handlers["navigation:click"]({ target: { closest: () => ({}) } }),
+    () => page.handlers["document:click"]({ target: { closest: () => null } }),
+    () => page.handlers["viewport:change"]({ matches: true }),
+  ]) {
+    page.handlers["menu:click"]();
+    assert.equal(page.menu.attributes["aria-expanded"], "true");
+    close();
+    assert.equal(page.menu.attributes["aria-expanded"], "false");
+  }
+});
+
 for (const options of [
   {}, { saved: "zh" }, { saved: "invalid" },
   { failure: "access" }, { failure: "read" }, { failure: "write", saved: "zh" },

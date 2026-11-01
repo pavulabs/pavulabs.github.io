@@ -8,9 +8,9 @@ Current download: 0.1.57-preview, a signed and Apple-notarized universal DMG con
 
 当前下载为 0.1.57-preview 通用 DMG，含 Apple 芯片和 Intel 架构，最低 macOS 14，已签名并通过 Apple 公证；Intel 真机尚未验收。最近的 macOS 27.0.1 升级测试中，安装和启动通过，但 App 无法连接已启用的采集扩展，重试或重开后仍复现。当前预览包尚未通过完整采集验收。
 
-Pavu processes metadata rather than communication contents. Current macOS builds do not collect file-access events. Findings identify behavior to investigate, not proven malware or data leakage. Missing collection data is unavailable, not evidence of no activity or safety. Linux and Windows are prototype work, not supported products offered by this website; Android is planned. Product source is being prepared for public access.
+Pavu processes metadata rather than communication contents. Current macOS builds do not collect file-access events. Findings identify behavior to investigate, not proven malware or data leakage. Missing collection data is unavailable, not evidence of no activity or safety. Linux has a collector prototype. Supported public Windows and Android products are planned; none of these platforms has a supported App download on this website. Product source is being prepared for public access.
 
-Pavu 处理元数据，不读取通信正文；当前 macOS 版不采集文件访问事件。风险发现是需要核实的行为线索，不是已证实的恶意或泄露；缺失数据不能解释为没有活动或安全。Linux、Windows 处于原型阶段，本站不提供已受支持的产品版本；Android 仍在规划，产品源码正在准备公开。
+Pavu 处理元数据，不读取通信正文；当前 macOS 版不采集文件访问事件。风险发现是需要核实的行为线索，不是已证实的恶意或泄露；缺失数据不能解释为没有活动或安全。Linux 处于采集原型阶段；Windows 和 Android 的公开受支持产品仍在规划，本站尚不提供这三个平台的受支持 App 下载。产品源码正在准备公开。
 
 ## App documentation
 

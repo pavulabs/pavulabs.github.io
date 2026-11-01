@@ -50,7 +50,7 @@ For upgrades from 0.1.17-preview or earlier, follow the homepage's migration not
 ### Other platforms, source, and licensing
 
 - **Linux:** collector prototype; no supported Linux App is offered on this website.
-- **Windows:** observe-only prototype work; no supported Windows product download is offered on this website.
+- **Windows:** a supported public product is planned; no supported Windows product download is offered on this website.
 - **Android:** planned.
 - **License:** Pavu uses Apache License 2.0; bundled dependencies keep their own licenses. See [licenses](https://pavu.org/product-license.html). Product source is being prepared for public access; do not assume a private repository is publicly readable.
 
@@ -98,7 +98,7 @@ Pavu 不采集网络 payload，不解密 TLS，不读取文件或消息正文、
 ### 其他平台、源码与许可
 
 - **Linux：**采集原型阶段，本站不提供已受支持的 Linux App。
-- **Windows：**仅观测原型阶段，本站不提供已受支持的 Windows 产品下载。
+- **Windows：**公开受支持产品仍在规划，本站不提供已受支持的 Windows 产品下载。
 - **Android：**规划中。
 - **许可：**Pavu 采用 Apache License 2.0，所含依赖各自遵循其许可证，见[许可证页面](https://pavu.org/product-license.html)。产品源码正在准备公开，不应假设私有仓库可公开读取。
 

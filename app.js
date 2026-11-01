@@ -1,116 +1,64 @@
+// Language preference and accessible navigation for the home page.
 const translatable = document.querySelectorAll("[data-en][data-zh]");
 const languageButton = document.querySelector(".language-button");
-let preferredLanguage;
+const menuButton = document.querySelector(".menu-button");
+const navigation = document.getElementById("primary-navigation");
+let language = "en";
+
 try {
-  preferredLanguage = window.localStorage.getItem("pavu-language");
+  if (window.localStorage.getItem("pavu-language") === "zh") language = "zh";
 } catch {
-  // Storage may be disabled; the page must still initialize.
+  // The language toggle also works when browser storage is unavailable.
 }
-let language = preferredLanguage === "zh" ? "zh" : "en";
 
-function applyLanguage(nextLanguage) {
-  language = nextLanguage;
-  document.documentElement.lang = language === "zh" ? "zh-CN" : "en";
-  document.title = language === "zh" ? "Pavu — 本机优先的应用安全" : "Pavu — Local-first application security";
+function applyLanguage() {
+  const chinese = language === "zh";
+  document.documentElement.lang = chinese ? "zh-CN" : "en";
+  document.title = chinese ? "Pavu — 本机优先的应用安全" : "Pavu — Local-first application security";
+  translatable.forEach((element) => { element.textContent = element.dataset[language]; });
+  languageButton.textContent = chinese ? "EN" : "中文";
+  languageButton.setAttribute("aria-label", chinese ? "Switch to English" : "切换为中文");
+  navigation.setAttribute("aria-label", chinese ? "主导航" : "Primary navigation");
+  document.querySelector(".brand").setAttribute("aria-label", chinese ? "Pavu 首页" : "Pavu home");
+  updateMenuLabel();
+}
 
-  translatable.forEach((element) => {
-    element.textContent = element.dataset[language];
-  });
+function updateMenuLabel() {
+  const expanded = menuButton.getAttribute("aria-expanded") === "true";
+  menuButton.setAttribute("aria-label", language === "zh"
+    ? (expanded ? "关闭导航" : "打开导航")
+    : (expanded ? "Close navigation" : "Open navigation"));
+}
 
-  languageButton.textContent = language === "zh" ? "EN" : "中文";
-  languageButton.setAttribute(
-    "aria-label",
-    language === "zh" ? "Switch to English" : "切换为中文",
-  );
+function setMenu(open) {
+  menuButton.setAttribute("aria-expanded", String(open));
+  navigation.classList.toggle("is-open", open);
+  updateMenuLabel();
 }
 
 languageButton.addEventListener("click", () => {
-  const nextLanguage = language === "zh" ? "en" : "zh";
-  applyLanguage(nextLanguage);
-  try {
-    window.localStorage.setItem("pavu-language", nextLanguage);
-  } catch {
-    // Keep the selected language for this page even when it cannot be saved.
-  }
+  language = language === "en" ? "zh" : "en";
+  applyLanguage();
+  try { window.localStorage.setItem("pavu-language", language); } catch { /* Session-only preference. */ }
 });
 
+menuButton.addEventListener("click", () => {
+  setMenu(menuButton.getAttribute("aria-expanded") !== "true");
+});
+navigation.addEventListener("click", (event) => {
+  if (event.target.closest("a")) setMenu(false);
+});
+document.addEventListener("click", (event) => {
+  if (!event.target.closest(".site-header")) setMenu(false);
+});
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && menuButton.getAttribute("aria-expanded") === "true") {
+    setMenu(false);
+    menuButton.focus();
+  }
+});
+window.matchMedia("(min-width: 651px)").addEventListener("change", (event) => {
+  if (event.matches) setMenu(false);
+});
 document.getElementById("year").textContent = new Date().getFullYear();
-applyLanguage(language);
-
-const background = document.querySelector(".network-background");
-const context = background.getContext("2d");
-const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-let points = [];
-let animationFrame;
-
-function resizeBackground() {
-  const pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
-  const width = window.innerWidth;
-  const height = window.innerHeight;
-  background.width = Math.round(width * pixelRatio);
-  background.height = Math.round(height * pixelRatio);
-  context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
-
-  const pointCount = Math.min(90, Math.max(28, Math.round((width * height) / 19000)));
-  points = Array.from({ length: pointCount }, () => ({
-    x: Math.random() * width,
-    y: Math.random() * height,
-    radius: 0.7 + Math.random() * 1.5,
-    velocityX: (Math.random() - 0.5) * 0.13,
-    velocityY: (Math.random() - 0.5) * 0.13,
-    phase: Math.random() * Math.PI * 2,
-  }));
-}
-
-function drawBackground(time = 0) {
-  const width = window.innerWidth;
-  const height = window.innerHeight;
-  context.clearRect(0, 0, width, height);
-
-  points.forEach((point, index) => {
-    if (!reduceMotion.matches) {
-      point.x = (point.x + point.velocityX + width) % width;
-      point.y = (point.y + point.velocityY + height) % height;
-    }
-
-    for (let nextIndex = index + 1; nextIndex < points.length; nextIndex += 1) {
-      const nextPoint = points[nextIndex];
-      const xDistance = nextPoint.x - point.x;
-      const yDistance = nextPoint.y - point.y;
-      const distance = Math.hypot(xDistance, yDistance);
-
-      if (distance < 118) {
-        context.beginPath();
-        context.moveTo(point.x, point.y);
-        context.lineTo(nextPoint.x, nextPoint.y);
-        context.strokeStyle = `rgba(42, 168, 255, ${0.055 * (1 - distance / 118)})`;
-        context.stroke();
-      }
-    }
-
-    const shimmer = reduceMotion.matches ? 0.52 : 0.42 + Math.sin(time * 0.0007 + point.phase) * 0.16;
-    context.beginPath();
-    context.arc(point.x, point.y, point.radius, 0, Math.PI * 2);
-    context.fillStyle = `rgba(44, 234, 217, ${shimmer})`;
-    context.fill();
-  });
-
-  if (!reduceMotion.matches && !document.hidden) {
-    animationFrame = window.requestAnimationFrame(drawBackground);
-  }
-}
-
-function restartBackground() {
-  window.cancelAnimationFrame(animationFrame);
-  drawBackground();
-}
-
-window.addEventListener("resize", () => {
-  resizeBackground();
-  restartBackground();
-});
-reduceMotion.addEventListener("change", restartBackground);
-document.addEventListener("visibilitychange", restartBackground);
-
-resizeBackground();
-drawBackground();
+applyLanguage();

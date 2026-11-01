@@ -2,6 +2,9 @@ import { access, readFile } from "node:fs/promises";
 
 const html = await readFile("index.html", "utf8");
 const canonicalUrl = "https://pavu.org/";
+if (/<meta\b[^>]*name="robots"[^>]*content="[^"]*noindex/i.test(html)) {
+  throw new Error("The production homepage must not inherit beta's noindex directive.");
+}
 if (!html.includes(`<link rel="canonical" href="${canonicalUrl}" />`)) {
   throw new Error(`Expected canonical URL: ${canonicalUrl}`);
 }

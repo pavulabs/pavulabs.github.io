@@ -1,4 +1,4 @@
-// Keep the redesign self-contained while the root page awaits review.
+// Language preference and accessible navigation for the beta preview.
 const translatable = document.querySelectorAll("[data-en][data-zh]");
 const languageButton = document.querySelector(".language-button");
 const menuButton = document.querySelector(".menu-button");
@@ -34,6 +34,7 @@ function setMenu(open) {
   menuButton.setAttribute("aria-expanded", String(open));
   navigation.classList.toggle("is-open", open);
   updateMenuLabel();
+  if (open) navigation.querySelector("a")?.focus();
 }
 
 languageButton.addEventListener("click", () => {

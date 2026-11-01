@@ -34,6 +34,7 @@ function setMenu(open) {
   menuButton.setAttribute("aria-expanded", String(open));
   navigation.classList.toggle("is-open", open);
   updateMenuLabel();
+  if (open) navigation.querySelector("a")?.focus();
 }
 
 languageButton.addEventListener("click", () => {

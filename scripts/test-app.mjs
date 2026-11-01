@@ -23,6 +23,11 @@ function startPage(source, { saved = null, failure } = {}) {
   const menu = element("menu");
   menu.setAttribute("aria-expanded", "false");
   const navigation = element("navigation");
+  const firstLink = element("firstLink");
+  navigation.querySelector = (selector) => {
+    assert.equal(selector, "a");
+    return firstLink;
+  };
   const brand = element("brand");
   const year = {};
   const copy = { dataset: { en: "English content", zh: "中文内容" } };
@@ -57,7 +62,7 @@ function startPage(source, { saved = null, failure } = {}) {
   };
   runInNewContext(source, { document, window });
   assert.equal(year.textContent, new Date().getFullYear());
-  return { document, language, menu, navigation, brand, copy, writes, handlers };
+  return { document, language, menu, navigation, firstLink, brand, copy, writes, handlers };
 }
 
 for (const [name, source] of sources) {
@@ -85,6 +90,13 @@ for (const [name, source] of sources) {
         ? [] : sequence.slice(1).map((language) => ["pavu-language", language]));
     });
   }
+
+  test(name + " menu opens at its first link for forward keyboard navigation", () => {
+    const page = startPage(source);
+    assert.equal(page.firstLink.focused, undefined);
+    page.handlers["menu:click"]();
+    assert.equal(page.firstLink.focused, true);
+  });
 
   test(name + " menu closes with Escape and restores focus", () => {
     const page = startPage(source);

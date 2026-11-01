@@ -21,7 +21,7 @@ The site is published with a custom GitHub Actions workflow. GitHub Pages stores
 
 ## Beta preview
 
-Larger visual changes are published first at `https://pavu.org/beta/` for review. The `beta/` directory holds its own `index.html` and `styles.css` and reuses the root `app.js`, `favicon.svg` and `assets/` through relative `../` paths. The preview is marked `noindex`, keeps the root canonical URL, and is not listed in the sitemap. After the preview is approved, copy its page and styles to the root (restoring root-relative asset paths and removing the `noindex` tag) in a separate pull request.
+Larger visual changes are published first at `https://pavu.org/beta/` for review. The `beta/` directory holds its own `index.html`, `styles.css`, and `app.js` and reuses the root `assets/` through relative `../` paths. The preview is marked `noindex`, keeps the root canonical URL, and is not listed in the sitemap. After the preview is approved, copy its page, styles, and script to the root (restoring root-relative asset and download paths and removing the `noindex` tag) in a separate pull request. Check other pages that share the root stylesheet when promoting a redesign.
 
 ## Search discovery
 

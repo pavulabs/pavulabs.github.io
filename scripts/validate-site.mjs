@@ -17,7 +17,9 @@ const requiredFiles = [
   "assets/pavu-icon.png",
   "favicon.svg",
   "index.html",
+  "index.html.md",
   "license.js",
+  "llms.txt",
   "product-license.html",
   "robots.txt",
   "sitemap.xml",
@@ -107,6 +109,52 @@ const licenseIds = new Set([...licenseHtml.matchAll(/\sid="([^"]+)"/g)].map((mat
 for (const [, anchor] of licenseHtml.matchAll(/href="#([^"]+)"/g)) {
   if (!licenseIds.has(anchor)) {
     throw new Error(`Missing license page anchor target: #${anchor}`);
+  }
+}
+
+// Keep the LLM-facing documents discoverable and their download links current.
+if (
+  !html.includes('<link rel="describedby" type="text/plain" href="llms.txt" />') ||
+  !html.includes('<link rel="alternate" type="text/markdown" href="index.html.md" />') ||
+  !licenseHtml.includes('<link rel="describedby" type="text/plain" href="llms.txt" />')
+) {
+  throw new Error("Public pages must advertise the LLM index and Markdown guide.");
+}
+const installer = html.match(/href="(downloads\/Pavu-[^"]+\.dmg)"/)?.[1];
+if (!installer) {
+  throw new Error("The homepage's current macOS installer link is missing.");
+}
+for (const document of ["llms.txt", "index.html.md"]) {
+  const markdown = await readFile(document, "utf8");
+  if (
+    !markdown.startsWith("# Pavu\n") &&
+    !markdown.startsWith("# Pavu App\n")
+  ) {
+    throw new Error(`${document} must identify Pavu in its first heading.`);
+  }
+  if (
+    !markdown.includes(`](${canonicalUrl}${installer})`) ||
+    !markdown.includes(`](${canonicalUrl}${installer}.sha256)`)
+  ) {
+    throw new Error(`${document} must link to the homepage's current installer and checksum.`);
+  }
+  for (const [, reference] of markdown.matchAll(/\[[^\]]+\]\((https:\/\/[^\s)]+)\)/g)) {
+    const url = new URL(reference);
+    if (url.origin !== new URL(canonicalUrl).origin) {
+      continue;
+    }
+    const path = decodeURIComponent(url.pathname).replace(/^\/+/, "") || "index.html";
+    if (path.split("/").includes("..")) {
+      throw new Error(`Invalid Markdown link path in ${document}.`);
+    }
+    await access(path);
+    if (url.hash && path.endsWith(".html")) {
+      const target = await readFile(path, "utf8");
+      const anchor = decodeURIComponent(url.hash.slice(1));
+      if (!target.includes(`id="${anchor}"`)) {
+        throw new Error(`Missing Markdown link anchor: ${reference}`);
+      }
+    }
   }
 }
 

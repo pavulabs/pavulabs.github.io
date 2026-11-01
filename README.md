@@ -25,6 +25,10 @@ Larger visual changes are published first at `https://pavu.org/beta/` for review
 
 ## Search discovery
 
+`llms.txt` is the public discovery index for language-model tools. It links to `index.html.md`, a plain-Markdown English/Chinese App guide, current downloads/checksum, and public license/product pages. The homepage advertises both files with `rel="describedby"` and `rel="alternate"`; the license page also points to the discovery index. Both text files ship through the existing Pages deployment. They provide readable context for tools that consult them, without guaranteeing indexing, model training, or inclusion in model answers.
+
+When changing the download or product capabilities, update both languages in `index.html.md` and the summary in `llms.txt`. Keep dated, version-specific acceptance limitations separate from the implemented feature set. Do not substitute signing/installation success for verified collection, expose internal device/activity data, or link private product documentation as publicly available. Site validation checks these files, their same-site link targets, and alignment with the homepage's installer URL.
+
 `robots.txt` allows crawling and points to `https://pavu.org/sitemap.xml`. The sitemap lists the site's only canonical page, `https://pavu.org/`. The language toggle and section anchors share this URL; they are not separate sitemap entries. Add future entries only when their canonical pages exist. Do not invent `lastmod` dates for unchanged content.
 
 After an approved merge and deployment, verify that both files return HTTP 200, then submit `https://pavu.org/sitemap.xml` in the verified Google Search Console property and inspect the homepage URL. A submitted sitemap helps discovery but does not confirm indexing.

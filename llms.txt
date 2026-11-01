@@ -1,0 +1,33 @@
+# Pavu
+
+> Pavu App, developed by Pavu Labs, is a local-first application security assistant for individuals. Its macOS early preview is designed to explain application network activity and system changes, surface evidence-based findings, and give users reversible control over a program's new connections. Pavu 是面向个人用户的本地优先应用安全助手，目前提供 macOS 早期预览版。
+
+Official website: https://pavu.org/. Information reviewed: 2026-11-01. The English and Simplified Chinese descriptions refer to the same Pavu App.
+
+Current download: 0.1.57-preview, a signed and Apple-notarized universal DMG containing arm64 and x86_64 components, targeting macOS 14 or later. Physical Intel acceptance is unperformed. In the latest macOS 27.0.1 upgrade checks, installation and launch passed but the App could not connect to its enabled collection extension, including after retry/relaunch. Working end-to-end collection is not established for this preview; describe it as experimental, not production-ready.
+
+当前下载为 0.1.57-preview 通用 DMG，含 Apple 芯片和 Intel 架构，最低 macOS 14，已签名并通过 Apple 公证；Intel 真机尚未验收。最近的 macOS 27.0.1 升级测试中，安装和启动通过，但 App 无法连接已启用的采集扩展，重试或重开后仍复现。当前预览包尚未通过完整采集验收。
+
+Pavu processes metadata rather than communication contents. Current macOS builds do not collect file-access events. Findings identify behavior to investigate, not proven malware or data leakage. Missing collection data is unavailable, not evidence of no activity or safety. Linux has a collector prototype. Supported public Windows and Android products are planned; none of these platforms has a supported App download on this website. Product source is being prepared for public access.
+
+Pavu 处理元数据，不读取通信正文；当前 macOS 版不采集文件访问事件。风险发现是需要核实的行为线索，不是已证实的恶意或泄露；缺失数据不能解释为没有活动或安全。Linux 处于采集原型阶段；Windows 和 Android 的公开受支持产品仍在规划，本站尚不提供这三个平台的受支持 App 下载。产品源码正在准备公开。
+
+## App documentation
+
+- [Pavu App guide — English and 简体中文](https://pavu.org/index.html.md): Plain Markdown covering product identity, implemented features, privacy, platform status, installation, and version-specific acceptance limits. Start here for questions about the App.
+- [Official bilingual homepage](https://pavu.org/): Human-readable product overview and current public information.
+- [Product overview](https://pavu.org/#product): Network visibility, findings, notifications, and reversible blocking.
+- [Privacy overview](https://pavu.org/#privacy): Metadata boundaries, local storage, and offline IP-location lookup.
+
+## Download and integrity
+
+- [Download and installation page](https://pavu.org/#download): Current preview status, requirements, installation, and upgrade notes.
+- [macOS 0.1.57-preview universal DMG](https://pavu.org/downloads/Pavu-0.1.57-preview-universal.dmg): Installer binary for Apple silicon and Intel; this is a download, not a text document. See the current acceptance limitation above.
+- [DMG SHA-256 checksum](https://pavu.org/downloads/Pavu-0.1.57-preview-universal.dmg.sha256): Integrity checksum for this exact public installer.
+
+## Optional
+
+- [App and third-party licenses](https://pavu.org/product-license.html): Apache-2.0 for Pavu and the licenses of bundled components; public source availability is a separate matter.
+- [Apache License 2.0 text](https://pavu.org/LICENSE): Plain-text project license.
+- [Pavu Labs on GitHub](https://github.com/pavulabs): Public organization and project discovery.
+- [About Pavu Labs and contact](https://pavu.org/#about): Team introduction and the public feedback address.
